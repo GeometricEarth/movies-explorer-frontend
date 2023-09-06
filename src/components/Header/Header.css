@@ -1,0 +1,47 @@
+.header {
+  margin: 0 70px;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.menu {
+}
+
+.menu__link {
+  text-decoration: none;
+  color: white;
+}
+
+.menu__link:first-child {
+  margin-right: 16px;
+}
+
+.button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  background: #313131;
+  height: 32px;
+  width: 100px;
+  border-radius: 20px;
+}
+
+.menu__sign-in {
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  color: black;
+  background-color: #3ddc84;
+}
