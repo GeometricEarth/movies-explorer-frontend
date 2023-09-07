@@ -23,7 +23,7 @@ export default function Navigation({ isAuthorized }) {
       <Link className='navigation__sign-up' to="/signup">Регистрация</Link>
       <Button classList="navigation__sign-in-button" onClick={handleClickSignIn}>Войти</Button>
     </nav>)}
-    {isAuthorized && (<Button classList="navigation__burger-menu-button"><img src={burgerButton} alt='Открыть меню навигации' /></Button>)}
+    {isAuthorized &&  (<Button classList="navigation__burger-menu-button"><img src={burgerButton} alt='Открыть меню навигации' /></Button>)}
   </>
   )
 }
