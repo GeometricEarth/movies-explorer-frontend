@@ -57,3 +57,13 @@
     display: block;
   }
 }
+
+@media (max-width: 320px) {
+  .navigation__sign-up{
+    margin-right: 14px;
+    font-size: 10px;
+  }
+  .navigation__sign-in-button {
+    font-size: 10px;
+  }
+}
