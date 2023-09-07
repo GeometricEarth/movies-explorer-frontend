@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 import Button from '../Button/Button';
-import buregerButton from '../../images/burgerButton.svg'
+import burgerButton from '../../images/burgerButton.svg'
 
 export default function Navigation({ isAuthorized }) {
   return (<>
@@ -16,7 +16,7 @@ export default function Navigation({ isAuthorized }) {
       <Link className='navigation__sign-up'>Регистрация</Link>
       <Button classList="navigation__sign-in-button">Войти</Button>
     </nav>)}
-    <Button classList="navigation__burger-menu-button"><img src={buregerButton} alt='Открыть меню навигации' /></Button>
+    <Button classList="navigation__burger-menu-button"><img src={burgerButton} alt='Открыть меню навигации' /></Button>
   </>
   )
 }
