@@ -2,4 +2,9 @@
   padding: 0;
   border: none;
   cursor: pointer;
+  transition: opacity ease-in-out 0.8;
+}
+
+.button:hover {
+  opacity: 0.8;
 }
