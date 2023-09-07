@@ -3,7 +3,7 @@ import './Navigation.css';
 import Button from '../Button/Button';
 import burgerButton from '../../images/burgerButton.svg'
 
-export default function Navigation({ isAuthorized, onSignIn }) {
+export default function Navigation({ isAuthorized }) {
   const navigate = useNavigate();
   const handleClickProfile = ()=>{
     navigate('/profile');
@@ -23,7 +23,7 @@ export default function Navigation({ isAuthorized, onSignIn }) {
       <Link className='navigation__sign-up' to="/signup">Регистрация</Link>
       <Button classList="navigation__sign-in-button" onClick={handleClickSignIn}>Войти</Button>
     </nav>)}
-    <Button classList="navigation__burger-menu-button"><img src={burgerButton} alt='Открыть меню навигации' /></Button>
+    {isAuthorized && (<Button classList="navigation__burger-menu-button"><img src={burgerButton} alt='Открыть меню навигации' /></Button>)}
   </>
   )
 }
