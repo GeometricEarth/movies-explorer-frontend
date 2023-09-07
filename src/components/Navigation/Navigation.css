@@ -1,6 +1,7 @@
 .navigation__link {
   text-decoration: none;
   color: white;
+  font-size: 14px;
 }
 
 .navigation__link:first-child {
@@ -23,6 +24,8 @@
   height: 32px;
   border-radius: 3px;
   color: black;
+  font-size: 12px;
+  font-weight: 500;
   background: #3ddc84;
 }
 
