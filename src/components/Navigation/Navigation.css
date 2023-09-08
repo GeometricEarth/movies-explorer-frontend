@@ -1,0 +1,71 @@
+.navigation__link {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.navigation__link:first-child {
+  margin-right: 16px;
+}
+
+.navigation__profile-button {
+  color: white;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  background: #313131;
+  height: 32px;
+  width: 100px;
+  border-radius: 20px;
+}
+
+.navigation__sign-in-button {
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+  background: #3ddc84;
+}
+
+.navigation__sign-up {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  margin-right: 30px;
+}
+
+.navigation__burger-menu-button {
+  display: none;
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+  .navigation__link {
+    display: none;
+  }
+  .navigation__profile-button {
+    display: none;
+  }
+  .navigation__burger-menu-button {
+    display: block;
+  }
+}
+
+@media (max-width: 320px) {
+  .navigation__sign-up{
+    margin-right: 14px;
+    font-size: 10px;
+  }
+  .navigation__sign-in-button {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+  }
+}
