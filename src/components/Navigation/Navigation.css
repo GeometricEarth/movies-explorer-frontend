@@ -65,5 +65,7 @@
   }
   .navigation__sign-in-button {
     font-size: 10px;
+    width: 54px;
+    height: 26px;
   }
 }
