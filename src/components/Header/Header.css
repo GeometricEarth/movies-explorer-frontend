@@ -18,7 +18,7 @@
   }
 }
 
-@media (max-width: 320px){
+@media (max-width: 425px){
   .header {
     margin: 0 14px;
   }

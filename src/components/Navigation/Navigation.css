@@ -58,7 +58,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
   .navigation__sign-up{
     margin-right: 14px;
     font-size: 10px;
