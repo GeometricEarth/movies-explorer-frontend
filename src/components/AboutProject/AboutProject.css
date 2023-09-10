@@ -1,0 +1,124 @@
+.about {
+  margin: 110px 70px 0;
+}
+.about__title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  padding-bottom: 23px;
+  border-bottom: #dadada 1px solid;
+}
+.about__description {
+  margin-top: 70px;
+  display: flex;
+  gap: 52px;
+}
+.about__caption {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.8px;
+  margin: 0;
+  min-height: 48px;
+}
+.about__text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  margin-top: 2px;
+}
+.about__time-line {
+  display: grid;
+  grid-template-columns: 228px auto;
+  padding: 110px 0;
+}
+.about__stage-duration {
+  min-height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  background: #303030;
+}
+.about__stage-duration_color_green {
+  color: #000;
+  background: #3ddc84;
+}
+.about__stage-name {
+  margin-top: 14px;
+  color: #8b8b8b;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+}
+
+@media (max-width: 903px) {
+  .about__text {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    margin: 90px 50px 0;
+  }
+  .about__description {
+    gap: 36px;
+  }
+  .about__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .about__time-line {
+    grid-template-columns: 140px auto;
+    padding: 90px 0;
+  }
+  .about__stage-name {
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 620px) {
+  .about {
+    margin: 70px 18px 0;
+  }
+  .about__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+  .about__description {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  .about__caption {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    min-height: auto;
+  }
+  .about__text {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 18px;
+  }
+  .about__time-line {
+    padding: 60px 0 69px;
+    grid-template-columns: 100px auto;
+  }
+  .about__stage-duration {
+    font-size: 11px;
+  }
+  .about__stage-name {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+}
