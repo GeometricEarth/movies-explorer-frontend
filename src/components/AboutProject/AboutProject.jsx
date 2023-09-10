@@ -1,9 +1,10 @@
 import './AboutProject.css';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function AboutProject() {
   return (
     <section className="about">
-      <h2 className="about__title">О проекте</h2>
+      <SectionTitle>О проекте</SectionTitle>
       <div className="about__description">
         <div>
           <p className="about__caption">Дипломный проект включал 5 этапов</p>

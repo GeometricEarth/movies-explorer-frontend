@@ -1,15 +1,6 @@
 .about {
   margin: 110px 70px 0;
 }
-.about__title {
-  color: #fff;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: -0.88px;
-  padding-bottom: 23px;
-  border-bottom: #dadada 1px solid;
-}
 .about__description {
   margin-top: 70px;
   display: flex;
@@ -88,11 +79,6 @@
 @media (max-width: 620px) {
   .about {
     margin: 70px 18px 0;
-  }
-  .about__title {
-    font-size: 18px;
-    letter-spacing: -0.72px;
-    padding-bottom: 28px;
   }
   .about__description {
     margin-top: 60px;
