@@ -11,15 +11,16 @@
   height: 38px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .header {
     margin: 0 30px;
-    padding: 16px 0;
+    padding: 17px 0;
   }
 }
 
-@media (max-width: 425px){
+@media (max-width: 425px) {
   .header {
     margin: 0 14px;
+    padding: 17px 0;
   }
 }

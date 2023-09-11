@@ -69,7 +69,7 @@
   }
   .about__time-line {
     grid-template-columns: 140px auto;
-    padding: 90px 0;
+    padding: 93px 0 90px;
   }
   .about__stage-name {
     font-weight: 400;
