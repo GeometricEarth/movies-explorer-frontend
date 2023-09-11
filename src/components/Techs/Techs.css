@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
   .tech {
-    padding: 95px 50px;
+    padding: 90px 50px;
   }
   .tech__subtitle {
     margin-top: 80px;
@@ -64,7 +64,24 @@
 }
 
 @media (max-width: 750px) {
+  .tech {
+    background: #202020;
+    padding: 70px 18px;
+  }
+  .tech__subtitle {
+    margin-top: 60px;
+    font-size: 30px;
+    line-height: normal;
+    letter-spacing: -1.2px;
+  }
+  .tech__text {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+  }
   .tech__list {
+    margin-top: 50px;
     grid-template-columns: repeat(2, 84px);
+    gap: 6px 10px;
   }
 }
