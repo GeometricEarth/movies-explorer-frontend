@@ -7,6 +7,10 @@
   margin-top: 66px;
   gap: 49px;
 }
+.about-me__column {
+  display: flex;
+  flex-direction: column;
+}
 .about-me__name {
   font-size: 50px;
   font-style: normal;
@@ -21,6 +25,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
+  margin: 0;
+  margin-top: 18px;
 }
 .about-me__about {
   font-feature-settings: 'clig' off, 'liga' off;
@@ -29,6 +35,8 @@
   font-weight: 400;
   line-height: 22px;
   max-width: 600px;
+  margin: 0;
+  margin-top: 26px;
 }
 .about-me__github-link {
   color: #fff;
@@ -36,6 +44,7 @@
   font-style: normal;
   font-weight: 500;
   text-decoration: none;
+  margin-top: auto;
 }
 .about-me_image {
   width: 270px;
@@ -53,12 +62,44 @@
   .about-me__ocupation {
     font-size: 12px;
     line-height: 18px;
+    margin-top: 16px;
   }
   .about-me__about {
     font-size: 12px;
     line-height: 18px;
+    margin-top: 20px;
   }
   .about-me_image {
     width: 255px;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-me {
+    margin: 60px 14px 0;
+    font-size: 11px;
+  }
+  .about-me__wraper {
+    flex-direction: column-reverse;
+    margin-top: 60px;
+    gap: 40px;
+  }
+  .about-me__name {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+  .about-me__ocupation {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .about-me__about {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .about-me_image {
+    width: 100%;
+  }
+  .about-me__github-link {
+    margin-top: 40px;
   }
 }
