@@ -1,6 +1,5 @@
 .header {
   margin: 0 70px;
-  /* padding: 18px 0; */
   min-height: 74px;
   display: flex;
   justify-content: space-between;
@@ -15,13 +14,11 @@
 @media (max-width: 768px) {
   .header {
     margin: 0 30px;
-    /* padding: 17px 0; */
   }
 }
 
 @media (max-width: 425px) {
   .header {
     margin: 0 14px;
-    /* padding: 17px 0; */
   }
 }
