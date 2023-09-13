@@ -74,13 +74,14 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 620px) {
   .about-me {
     margin: 70px 14px 0;
     font-size: 11px;
   }
   .about-me__wraper {
     flex-direction: column-reverse;
+    align-items: center;
     margin-top: 60px;
     gap: 40px;
   }
@@ -98,6 +99,7 @@
   }
   .about-me_image {
     width: 100%;
+    max-width: 400px;
   }
   .about-me__github-link {
     margin-top: 40px;
