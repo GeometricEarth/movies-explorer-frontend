@@ -1,10 +1,13 @@
 import './SearchForm.css';
 import findButton from '../../images/find.svg';
-import { useState } from 'react';
 
 function SearchForm() {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+  }
+
   return (
-    <div className="search-form">
+    <form action="#" name='search' onSubmit={handleSubmit} className="search-form">
       <div className="search-form__wrapper">
         <input
           className="search-form__input"
@@ -17,9 +20,14 @@ function SearchForm() {
           <img src={findButton} alt="Кнопка найти" />
         </button>
       </div>
-      <button type="button" className="search-form__thumb"></button>
-      <label htmlFor="">Короткометражки</label>
-    </div>
+      <input
+        className="search-form__shortsFilter"
+        type="checkbox"
+        name="shortsFilter"
+        id="shortsFilter"
+      />
+      <label htmlFor="shortsFilter">Короткометражки</label>
+    </form>
   );
 }
 
