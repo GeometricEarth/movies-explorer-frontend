@@ -2,9 +2,10 @@ import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 
+import movies from '../../utils/mockData';
+
 export default function Movies() {
   // const [isLoaded, setIsLoaded] = useState(true);
-  const movies = [];
   return (<>
     <div className='movies'>
       <SearchForm></SearchForm>
