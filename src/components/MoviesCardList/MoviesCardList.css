@@ -1,7 +1,8 @@
-.movies-list{
-  display: flex;
-  /* flex-wrap: wrap; */
+.movies-list {
+  display: grid;
   gap: 58px 30px;
   margin: 10px 0 50px;
   padding-top: 70px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
 }

@@ -1,8 +1,9 @@
 .movies-card {
   position: relative;
+  max-width: 369px;
 }
 .movies-card__image {
-  min-width: 300px;
+  width: 100%;
   cursor: pointer;
 }
 .movies-card__save-button {
