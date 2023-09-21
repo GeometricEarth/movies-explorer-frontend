@@ -1,14 +1,28 @@
+.navigation {
+  margin: 0 auto;
+}
 .navigation__link {
   text-decoration: none;
   color: white;
-  font-size: 14px;
+  font-size: 13px;
 }
-
 .navigation__link:first-child {
   margin-right: 16px;
 }
-
-.navigation__profile-button {
+.navigation__burger-menu-button {
+  display: none;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+  background-image: url('../../images/burgerButton.svg');
+  grid-column-start: 3;
+  margin-left: auto;
+}
+.auth-buttons {
+  grid-column-start: 3;
+  margin-left: auto;
+}
+.auth-buttons_type_profile {
   color: white;
   font-size: 14px;
   line-height: 16px;
@@ -17,9 +31,9 @@
   height: 32px;
   width: 100px;
   border-radius: 20px;
+  margin-left: auto;
 }
-
-.navigation__sign-in-button {
+.auth-buttons_type_sign-in {
   width: 76px;
   height: 32px;
   border-radius: 3px;
@@ -28,19 +42,14 @@
   font-weight: 500;
   background: #3ddc84;
 }
-
-.navigation__sign-up {
+.auth-buttons_type_sign-up {
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
   color: white;
   text-decoration: none;
   margin-right: 30px;
-}
-
-.navigation__burger-menu-button {
-  display: none;
-  background-color: transparent;
+  margin-left: auto;
 }
 
 @media (max-width: 768px) {
@@ -50,22 +59,28 @@
   .navigation__link {
     display: none;
   }
-  .navigation__profile-button {
+  .auth-buttons_type_profile {
     display: none;
   }
   .navigation__burger-menu-button {
     display: block;
+    width: 44px;
+    height: 44px;
   }
 }
 
-@media (max-width: 425px) {
-  .navigation__sign-up{
+@media (max-width: 420px) {
+  .auth-buttons_type_sign-up {
     margin-right: 14px;
     font-size: 10px;
   }
-  .navigation__sign-in-button {
+  .auth-buttons_type_sign-in {
     font-size: 10px;
     width: 54px;
     height: 26px;
+  }
+  .navigation__burger-menu-button {
+    width: 40px;
+    height: 40px;
   }
 }
