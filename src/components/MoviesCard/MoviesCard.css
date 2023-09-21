@@ -57,3 +57,27 @@
   border-radius: 3px;
   background: #2f2f2f;
 }
+
+@media (max-width: 768px) {
+  .movies-card__description {
+    margin-top: 22px;
+    padding: 0;
+  }
+  .movies-card__title {
+    max-width: 250px;
+    min-height: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 420px) {
+  .movies-card__title {
+    font-size: 12px;
+    max-width: 240px;
+  }
+  .movies-card__description {
+    margin-top: 13px;
+  }
+}

@@ -7,15 +7,17 @@ function MoviesCardList({ moviesList }) {
   return (
     <section className="movies-list">
       {!moviesList && <Preloader></Preloader>}
-
-      {moviesList.map((moviesCard) => {
-        return (
-          <MoviesCard
-            movieCard={(moviesCard)}
-            key={moviesCard.movieId}
-          ></MoviesCard>
-        );
-      })}
+      <div className='movies-list__card-wrapper'>
+        {moviesList.map((moviesCard) => {
+          return (
+            <MoviesCard
+              movieCard={(moviesCard)}
+              key={moviesCard.movieId}
+            ></MoviesCard>
+          );
+        })}
+      </div>
+      <button className='movies-list__more-button' type="button">Ещё</button>
     </section>
   );
 }
