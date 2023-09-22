@@ -1,5 +1,6 @@
 import './Portfolio.css';
-import { Link } from 'react-router-dom';
+// import { Link } from '';
+import Link from '../LinkStyled/LinkStyled';
 
 export default function Portfolio() {
   return (
