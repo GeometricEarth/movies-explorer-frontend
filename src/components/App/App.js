@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
+import Login from '../Login/Login';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/signin" element={<Login />}></Route>
       </Routes>
     </div>
   );
