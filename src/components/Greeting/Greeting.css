@@ -7,10 +7,25 @@
   font-weight: 500;
   line-height: normal;
   margin: 35px 0 0;
-
 }
 
 .logo {
   width: 38px;
   height: 38px;
+}
+
+@media (max-width: 420px) {
+  .greeting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 56px 0 80px;
+  }
+  .greeting__link {
+    text-align: center;
+  }
+  .greeting__text {
+    text-align: center;
+    margin-top: 47px;
+  }
 }

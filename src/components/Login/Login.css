@@ -2,7 +2,7 @@
   max-width: 396px;
   margin: 0 auto;
 }
-.register{
+.register {
   display: flex;
   margin: 0 auto;
   gap: 6px;
@@ -83,4 +83,23 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #ffffff;
   transition: background-color 5000s ease-in-out 0s;
   box-shadow: inset 0 0 20px 20px #2f2f2f;
+}
+
+@media (max-width: 420px) {
+  .login {
+    max-width: 260px;
+  }
+  .form__submit {
+    margin-top: 251px;
+    font-size: 12px;
+  }
+  .register {
+    margin-top: 14px;
+  }
+  .register__text {
+    font-size: 12px;
+  }
+  .register__link {
+    font-size: 12px;
+  }
 }
