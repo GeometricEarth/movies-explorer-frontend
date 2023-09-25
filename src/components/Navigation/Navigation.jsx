@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navigation.css';
 import Button from '../Button/Button';
 import LinkStyled from '../LinkStyled/LinkStyled';
 
 export default function Navigation({ isAuthorized }) {
   const navigate = useNavigate();
+  const location = useLocation()
   const handleClickProfile = () => {
     navigate('/profile');
   };
@@ -16,10 +17,10 @@ export default function Navigation({ isAuthorized }) {
       {isAuthorized && (
         <>
           <nav className="navigation">
-            <LinkStyled className="navigation__link" to="/movies">
+            <LinkStyled className={"navigation__link" + (location.pathname === '/movies' ? ' navigation__link_current' : '')} to="/movies">
               Фильмы
             </LinkStyled>
-            <LinkStyled className="navigation__link" to="/saved-movies">
+            <LinkStyled className={"navigation__link" + (location.pathname === '/saved-movies' ? ' navigation__link_current' : '')} to="/saved-movies">
               Сохранённые фильмы
             </LinkStyled>
           </nav>
