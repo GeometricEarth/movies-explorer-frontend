@@ -29,9 +29,9 @@ export default function Login() {
         <button className="form__submit" type="submit">
           Войти
         </button>
-        <div className='register'>
+        <div className="register">
           <p className="register__text">Ещё не зарегистрированы?</p>
-          <Link className="register__link" to="">
+          <Link className="register__link" to="/signup">
             Регистрация
           </Link>
         </div>
