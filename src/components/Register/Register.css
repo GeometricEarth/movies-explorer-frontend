@@ -1,0 +1,29 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.redirect {
+  display: flex;
+  margin: 0 auto;
+  gap: 6px;
+  margin-top: 16px;
+}
+.redirect__text {
+  color: #8b8b8b;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+.redirect__link {
+  color: #4285f4;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
