@@ -1,11 +1,13 @@
-.login {
+.page-with-form {
   max-width: 396px;
   margin: 0 auto;
+  padding-bottom: 30px;
 }
+
 .redirect {
   display: flex;
-  margin: 0 auto;
-  gap: 6px;
+  justify-content: center;
+  gap: 7px;
   margin-top: 16px;
 }
 .redirect__text {
@@ -26,15 +28,12 @@
 }
 
 @media (max-width: 420px) {
-  .login {
+  .page-with-form {
     max-width: 260px;
-  }
-  .form__submit {
-    margin-top: 251px;
-    font-size: 12px;
   }
   .redirect {
     margin-top: 14px;
+    padding: 0 7px;
   }
   .redirect__text {
     font-size: 12px;

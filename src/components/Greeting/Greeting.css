@@ -1,5 +1,5 @@
 .greeting {
-  padding: 70px 0 42px;
+  padding: 70px 0 36px;
 }
 .greeting__text {
   font-size: 24px;
@@ -14,12 +14,18 @@
   height: 38px;
 }
 
+@media (max-width: 768px) {
+  .greeting {
+    padding: 232px 0 36px;
+  }
+}
+
 @media (max-width: 420px) {
   .greeting {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 56px 0 80px;
+    padding: 56px 0 74px;
   }
   .greeting__link {
     text-align: center;

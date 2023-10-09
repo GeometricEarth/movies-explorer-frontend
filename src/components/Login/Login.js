@@ -1,41 +1,28 @@
-import './Login.css';
+import PageWithForm from '../PageWithForm/PageWithForm';
 import Greeting from '../Greeting/Greeting';
+import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
+  const formData = [
+    { label: 'E-mail', type: 'email', name: 'email' },
+    { label: 'Пароль', type: 'password', name: 'password' },
+  ];
   return (
-    <section className="login">
+    <PageWithForm>
       <Greeting>Рады видеть!</Greeting>
-      <form className="form" name="signin">
-        <label className="form__label" htmlFor="email">
-          E-mail
-        </label>
-        <input className="form__input" type="text" name="email" id="email" />
-        <span className="form__error form__error_visible">
-          Что-то пошло не так...
-        </span>
-        <label className="form__label" htmlFor="password">
-          Пароль
-        </label>
-        <input
-          className="form__input"
-          type="password"
-          name="password"
-          id="password"
-        />
-        <span className="form__error form__error_visible">
-          Что-то пошло не так...
-        </span>
-        <button className="form__submit" type="submit">
-          Войти
-        </button>
-        <div className="redirect">
-          <p className="redirect__text">Ещё не зарегистрированы?</p>
-          <Link className="redirect__link" to="/signup">
-            Регистрация
-          </Link>
-        </div>
-      </form>
-    </section>
+      <Form
+        formData={formData}
+        formType="login"
+        name="login"
+        submitText="Войти"
+      ></Form>
+      <div className="redirect">
+        <p className="redirect__text">Ещё не зарегистрированы?</p>
+        <Link className="redirect__link" to="/signup">
+          Регистрация
+        </Link>
+      </div>
+    </PageWithForm>
   );
 }
