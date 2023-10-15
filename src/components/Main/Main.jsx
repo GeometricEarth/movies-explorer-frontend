@@ -7,11 +7,10 @@ import AboutMe from '../AboutMe/AboutMe';
 import Portfolio from '../Portfolio/Portfolio';
 import Footer from '../Footer/Footer';
 
-
-export default function Main() {
+export default function Main({ onOpenMobileMenu }) {
   return (
     <>
-      <Header></Header>
+      <Header onOpenMobileMenu={onOpenMobileMenu}></Header>
       <Promo></Promo>
       <AboutProject></AboutProject>
       <Techs></Techs>
