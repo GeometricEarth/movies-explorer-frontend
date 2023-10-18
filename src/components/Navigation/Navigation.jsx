@@ -3,9 +3,9 @@ import './Navigation.css';
 import Button from '../Button/Button';
 import LinkStyled from '../LinkStyled/LinkStyled';
 
-export default function Navigation({ isAuthorized }) {
+export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
   const handleClickProfile = () => {
     navigate('/profile');
   };
@@ -17,10 +17,26 @@ export default function Navigation({ isAuthorized }) {
       {isAuthorized && (
         <>
           <nav className="navigation">
-            <LinkStyled className={"navigation__link" + (location.pathname === '/movies' ? ' navigation__link_current' : '')} to="/movies">
+            <LinkStyled
+              className={
+                'navigation__link' +
+                (location.pathname === '/movies'
+                  ? ' navigation__link_current'
+                  : '')
+              }
+              to="/movies"
+            >
               Фильмы
             </LinkStyled>
-            <LinkStyled className={"navigation__link" + (location.pathname === '/saved-movies' ? ' navigation__link_current' : '')} to="/saved-movies">
+            <LinkStyled
+              className={
+                'navigation__link' +
+                (location.pathname === '/saved-movies'
+                  ? ' navigation__link_current'
+                  : '')
+              }
+              to="/saved-movies"
+            >
               Сохранённые фильмы
             </LinkStyled>
           </nav>
@@ -33,7 +49,7 @@ export default function Navigation({ isAuthorized }) {
         </>
       )}
       {!isAuthorized && (
-        <nav className='auth-buttons'>
+        <nav className="auth-buttons">
           <LinkStyled className="auth-buttons_type_sign-up" to="/signup">
             Регистрация
           </LinkStyled>
@@ -46,8 +62,7 @@ export default function Navigation({ isAuthorized }) {
         </nav>
       )}
       {isAuthorized && (
-        <Button classList="navigation__burger-menu-button">
-        </Button>
+        <Button classList="navigation__burger-menu-button" onClick={onOpenMobileMenu}></Button>
       )}
     </>
   );
