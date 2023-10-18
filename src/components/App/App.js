@@ -32,7 +32,7 @@ function App() {
         <Route
           path="/movies"
           element={
-            <MainTemplate isAuthorized={isAuthorized}>
+            <MainTemplate isAuthorized={isAuthorized} onOpenMobileMenu={handleOpenMobileMenu}>
               <Movies />
             </MainTemplate>
           }
