@@ -58,6 +58,7 @@
   border-radius: 3px;
   background: #4285f4;
   margin-top: 223px;
+  width: 100%;
 }
 .profile__logout {
   color: #ee3465;

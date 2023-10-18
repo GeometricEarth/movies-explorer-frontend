@@ -9,10 +9,15 @@ function Profile({ user, onSave }) {
     setEditable(true);
     console.log('edit');
   };
+  const handleClickSave = (evt, data) => {
+    evt.preventDefault();
+    setEditable(false);
+    onSave(evt);
+  };
   return (
     <div className="profile">
       <h1 className="profile__greeting">Привет, {user.name}</h1>
-      <form name="profile" className="profile__form">
+      <form name="profile" className="profile__form" onSubmit={handleClickSave}>
         <div className="profile__input-wrapper">
           <label className="profile__input-label" htmlFor="name">
             Имя
@@ -40,16 +45,17 @@ function Profile({ user, onSave }) {
             value={user.email}
           />
         </div>
-        {isEditable === true ? (
-          <Button classList="profile__submit-button" onClick={onSave}>
+        {isEditable && (
+          <Button type="submit" classList="profile__submit-button">
             Сохранить
-          </Button>
-        ) : (
-          <Button classList="profile__edit-button" onClick={handleClickEdit}>
-            Редактировать
           </Button>
         )}
       </form>
+      {!isEditable && (
+        <Button classList="profile__edit-button" onClick={handleClickEdit}>
+          Редактировать
+        </Button>
+      )}
       <LinkStyled className="profile__logout">Выйти из аккаунта</LinkStyled>
     </div>
   );
