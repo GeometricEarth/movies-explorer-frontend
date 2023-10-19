@@ -24,7 +24,7 @@ function App() {
     setMobileMenuOpened(true);
   };
   const handleSaveUserData = (user) => {
-    console.log(user);
+    setUser(user);
   };
   return (
     <div className="page">

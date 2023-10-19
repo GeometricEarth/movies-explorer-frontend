@@ -52,13 +52,30 @@
   margin-top: 220px;
   background: transparent;
 }
+.profile__submit-error {
+  color: #ff004c;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 189px 0 0;
+  min-height: 14px;
+}
+.profile__submit-error_hidden {
+  visibility: hidden;
+}
 .profile__submit-button {
   color: #fff;
   height: 45px;
   border-radius: 3px;
   background: #4285f4;
-  margin-top: 223px;
+  margin-top: 20px;
   width: 100%;
+}
+.profile__submit-button_disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
 }
 .profile__logout {
   color: #ee3465;
@@ -67,4 +84,3 @@
   line-height: normal;
   margin-top: 16px;
 }
-
