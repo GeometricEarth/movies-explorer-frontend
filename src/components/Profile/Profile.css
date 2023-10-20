@@ -1,6 +1,7 @@
 .profile {
   max-width: 410px;
   margin: 0 auto;
+  margin-top: 74px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,11 +12,14 @@
   font-size: 24px;
   font-weight: 500;
   line-height: normal;
+  font-style: normal;
+  margin: 0;
 }
 .profile__form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 123px;
 }
 .profile__input-wrapper {
   display: flex;
@@ -26,6 +30,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  white-space: nowrap;
 }
 .profile__input {
   color: #fff;
@@ -38,10 +43,11 @@
   border: none;
   position: relative;
   width: 100%;
+  padding: 0;
 }
 .profile__divider {
   border-top: solid #424242 1px;
-  margin: 17px 0;
+  margin: 16px 0 17px ;
 }
 .profile__edit-button {
   color: #fff;

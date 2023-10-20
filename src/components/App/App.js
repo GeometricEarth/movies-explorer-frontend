@@ -14,7 +14,7 @@ function App() {
   const [isAuthorized, setAuthorized] = useState(false);
   const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
   const [user, setUser] = useState({
-    name: 'Василий',
+    name: 'Виталий',
     email: 'pochta@yandex.ru',
   });
   const handleCloseMobileMenu = () => {
@@ -54,12 +54,12 @@ function App() {
         <Route
           path="/profile"
           element={
-            <MainTemplate
+            <Profile
+              user={user}
+              onSave={handleSaveUserData}
               isAuthorized={isAuthorized}
               onOpenMobileMenu={handleOpenMobileMenu}
-            >
-              <Profile user={user} onSave={handleSaveUserData} />
-            </MainTemplate>
+            />
           }
         ></Route>
         <Route path="/signin" element={<Login />}></Route>
