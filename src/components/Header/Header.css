@@ -25,5 +25,6 @@
 @media (max-width: 425px) {
   .header {
     margin: 0 14px;
+    grid-template-columns: auto;
   }
 }
