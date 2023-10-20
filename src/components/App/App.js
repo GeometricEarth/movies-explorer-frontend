@@ -8,23 +8,34 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import MobileMenu from '../MobileMenu/MobileMenu';
+import Profile from '../Profile/Profile';
 
 function App() {
   const [isAuthorized, setAuthorized] = useState(false);
   const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
-  const handleCloseMobileMenu = ()=>{
+  const [user, setUser] = useState({
+    name: 'Виталий',
+    email: 'pochta@yandex.ru',
+  });
+  const handleCloseMobileMenu = () => {
     setMobileMenuOpened(false);
-  }
-  const handleOpenMobileMenu = ()=>{
+  };
+  const handleOpenMobileMenu = () => {
     setMobileMenuOpened(true);
-  }
+  };
+  const handleSaveUserData = (user) => {
+    setUser(user);
+  };
   return (
     <div className="page">
       <Routes>
         <Route
           path="/"
           element={
-            <MainTemplate isAuthorized={isAuthorized} onOpenMobileMenu={handleOpenMobileMenu}>
+            <MainTemplate
+              isAuthorized={isAuthorized}
+              onOpenMobileMenu={handleOpenMobileMenu}
+            >
               <Main />
             </MainTemplate>
           }
@@ -32,9 +43,23 @@ function App() {
         <Route
           path="/movies"
           element={
-            <MainTemplate isAuthorized={isAuthorized} onOpenMobileMenu={handleOpenMobileMenu}>
+            <MainTemplate
+              isAuthorized={isAuthorized}
+              onOpenMobileMenu={handleOpenMobileMenu}
+            >
               <Movies />
             </MainTemplate>
+          }
+        ></Route>
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              user={user}
+              onSave={handleSaveUserData}
+              isAuthorized={isAuthorized}
+              onOpenMobileMenu={handleOpenMobileMenu}
+            />
           }
         ></Route>
         <Route path="/signin" element={<Login />}></Route>
@@ -42,7 +67,10 @@ function App() {
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
 
-      <MobileMenu isOpened={isMobileMenuOpened} onClose={handleCloseMobileMenu}></MobileMenu>
+      <MobileMenu
+        isOpened={isMobileMenuOpened}
+        onClose={handleCloseMobileMenu}
+      ></MobileMenu>
     </div>
   );
 }
