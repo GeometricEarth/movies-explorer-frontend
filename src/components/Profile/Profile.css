@@ -90,3 +90,15 @@
   line-height: normal;
   margin-top: 16px;
 }
+
+@media (max-width:768px) {
+  .profile {
+    margin-top: 236px;
+  }
+  .profile__form{
+    margin-top: 96px;
+  }
+  .profile__edit-button {
+    margin-top: 210px;
+  }
+}
