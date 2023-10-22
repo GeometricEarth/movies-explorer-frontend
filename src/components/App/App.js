@@ -29,60 +29,62 @@ function App() {
   };
   return (
     <div className="page">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainTemplate
-              isAuthorized={isAuthorized}
-              onOpenMobileMenu={handleOpenMobileMenu}
-            >
-              <Main />
-            </MainTemplate>
-          }
-        ></Route>
-        <Route
-          path="/movies"
-          element={
-            <MainTemplate
-              isAuthorized={isAuthorized}
-              onOpenMobileMenu={handleOpenMobileMenu}
-            >
-              <Movies />
-            </MainTemplate>
-          }
-        ></Route>
-        <Route
-          path="/saved-movies"
-          element={
-            <MainTemplate
-              isAuthorized={isAuthorized}
-              onOpenMobileMenu={handleOpenMobileMenu}
-            >
-              <SavedMovies />
-            </MainTemplate>
-          }
-        ></Route>
-        <Route
-          path="/profile"
-          element={
-            <Profile
-              user={user}
-              onSave={handleSaveUserData}
-              isAuthorized={isAuthorized}
-              onOpenMobileMenu={handleOpenMobileMenu}
-            />
-          }
-        ></Route>
-        <Route path="/signin" element={<Login />}></Route>
-        <Route path="/signup" element={<Register />}></Route>
-        <Route path="*" element={<PageNotFound />}></Route>
-      </Routes>
+      <div className="page__content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MainTemplate
+                isAuthorized={isAuthorized}
+                onOpenMobileMenu={handleOpenMobileMenu}
+              >
+                <Main />
+              </MainTemplate>
+            }
+          ></Route>
+          <Route
+            path="/movies"
+            element={
+              <MainTemplate
+                isAuthorized={isAuthorized}
+                onOpenMobileMenu={handleOpenMobileMenu}
+              >
+                <Movies />
+              </MainTemplate>
+            }
+          ></Route>
+          <Route
+            path="/saved-movies"
+            element={
+              <MainTemplate
+                isAuthorized={isAuthorized}
+                onOpenMobileMenu={handleOpenMobileMenu}
+              >
+                <SavedMovies />
+              </MainTemplate>
+            }
+          ></Route>
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                user={user}
+                onSave={handleSaveUserData}
+                isAuthorized={isAuthorized}
+                onOpenMobileMenu={handleOpenMobileMenu}
+              />
+            }
+          ></Route>
+          <Route path="/signin" element={<Login />}></Route>
+          <Route path="/signup" element={<Register />}></Route>
+          <Route path="*" element={<PageNotFound />}></Route>
+        </Routes>
 
-      <MobileMenu
-        isOpened={isMobileMenuOpened}
-        onClose={handleCloseMobileMenu}
-      ></MobileMenu>
+        <MobileMenu
+          isOpened={isMobileMenuOpened}
+          onClose={handleCloseMobileMenu}
+        ></MobileMenu>
+      </div>
     </div>
   );
 }
