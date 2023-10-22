@@ -1,5 +1,21 @@
 .movies {
   margin: 0 70px;
+  display: flex;
+  flex-direction: column;
+}
+.movies__more-button {
+  width: 320px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #424242;
+  background: none;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 61px auto 0;
 }
 
 @media (max-width: 768px) {
@@ -11,5 +27,8 @@
 @media (max-width: 420px) {
   .movies {
     margin: 0 10px;
+  }
+  .movies__more-button {
+    width: 240px;
   }
 }
