@@ -1,18 +1,38 @@
 import './MoviesCard.css';
-import saveIcon from '../../images/save-button_saved.svg';
 
-function MoviesCard({ movieCard }) {
-  const { image, title, duration, isSaved, movieId, onSave } = movieCard;
+function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
+  const { image, title, duration, isSaved, movieId } = movieCard;
   return (
     <div className="movies-card">
       <img className="movies-card__image" src={image} alt={title} />
-      {isSaved ? (
-        <button className="movies-card__save-button movies-card__save-button_saved">
-          <img src={saveIcon} alt="Отметка добавленного фильма" />
+      {!isSavedMovies & !isSaved ? (
+        <button
+          className="movies-card__button movies-card__button_type_save"
+          onClick={() => {
+            onSave(movieId);
+          }}
+        >
+          Сохранить
         </button>
       ) : (
-        <button className="movies-card__save-button">Сохранить</button>
+        <></>
       )}
+      {!isSavedMovies & isSaved ? (
+        <button className="movies-card__button movies-card__button_type_saved"></button>
+      ) : (
+        <></>
+      )}
+      {isSavedMovies ? (
+        <button
+          className="movies-card__button movies-card__button_type_delete"
+          onClick={() => {
+            onDelete(movieId);
+          }}
+        ></button>
+      ) : (
+        <></>
+      )}
+
       <div className="movies-card__description">
         <p className="movies-card__title">{title}</p>
         <span className="movies-card__duration">

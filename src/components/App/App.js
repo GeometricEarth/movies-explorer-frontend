@@ -4,6 +4,7 @@ import { useState } from 'react';
 import MainTemplate from '../MainTemplate/MainTemplate';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
@@ -48,6 +49,17 @@ function App() {
               onOpenMobileMenu={handleOpenMobileMenu}
             >
               <Movies />
+            </MainTemplate>
+          }
+        ></Route>
+        <Route
+          path="/saved-movies"
+          element={
+            <MainTemplate
+              isAuthorized={isAuthorized}
+              onOpenMobileMenu={handleOpenMobileMenu}
+            >
+              <SavedMovies />
             </MainTemplate>
           }
         ></Route>

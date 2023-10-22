@@ -5,11 +5,25 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import movies from '../../utils/mockData';
 
 export default function Movies() {
-  return (<>
-    <div className='movies'>
-      <SearchForm></SearchForm>
-      <MoviesCardList moviesList={movies}></MoviesCardList>
-    </div>
-  </>
-  )
+  const handleSave = (cardId) => {
+    console.log(cardId);
+  };
+
+  return (
+    <>
+      <div className="movies">
+        <SearchForm></SearchForm>
+        <MoviesCardList
+          moviesList={movies}
+          isSavedMovies={false}
+          onSave={handleSave}
+        ></MoviesCardList>
+        {movies.length > 10 && (
+          <button className="movies__more-button" type="button">
+            Ещё
+          </button>
+        )}
+      </div>
+    </>
+  );
 }
