@@ -5,7 +5,7 @@ import Link from '../LinkStyled/LinkStyled';
 
 export default function AboutMe() {
   return (
-    <section className="about-me">
+    <section className="about-me" id='student'>
       <SectionTitle>Студент</SectionTitle>
       <div className="about-me__wraper">
         <div className="about-me__column">

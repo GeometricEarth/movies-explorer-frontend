@@ -1,6 +1,7 @@
 .navtab {
   display: flex;
   justify-content: center;
+  gap: 10px;
 }
 .navtab__button {
   border-radius: 10px;
@@ -12,17 +13,14 @@
   font-weight: 500;
   line-height: 16px;
 }
-.navtab__button:not(:last-child) {
-  margin-right: 10px;
-}
 
-@media (max-width:425px) {
+@media (max-width: 425px) {
   .navtab__button {
     min-width: 82px;
     min-height: 26px;
     font-size: 10px;
   }
-  .navtab__button:not(:last-child){
+  .navtab__button:not(:last-child) {
     margin-right: 6px;
   }
 }
