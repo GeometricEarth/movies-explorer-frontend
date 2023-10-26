@@ -20,7 +20,7 @@
     min-height: 26px;
     font-size: 10px;
   }
-  .navtab__button:not(:last-child) {
-    margin-right: 6px;
+  .navtab {
+    gap: 6px;
   }
 }
