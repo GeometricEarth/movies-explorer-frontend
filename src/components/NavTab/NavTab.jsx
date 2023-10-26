@@ -4,9 +4,9 @@ import Button from '../Button/Button';
 export default function NavTab() {
   return (
     <nav className='navtab'>
-      <Button classList='navtab__button'>О проекте</Button>
-      <Button classList='navtab__button'>Технологии</Button>
-      <Button classList='navtab__button'>Студент</Button>
+      <a href="#about"><Button classList='navtab__button'>О проекте</Button></a>
+      <a href="#tech"><Button classList='navtab__button'>Технологии</Button></a>
+      <a href="#student"><Button classList='navtab__button'>Студент</Button></a>
     </nav>
   );
 }

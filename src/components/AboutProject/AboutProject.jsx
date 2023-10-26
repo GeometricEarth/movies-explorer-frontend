@@ -3,7 +3,7 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function AboutProject() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <SectionTitle>О проекте</SectionTitle>
       <div className="about__description">
         <div>

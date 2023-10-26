@@ -3,7 +3,7 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function Techs() {
   return (
-    <section className='tech'>
+    <section className='tech' id='tech'>
       <SectionTitle classList='section-title__underline_color_black'>Технологии</SectionTitle>
       <h3 className="tech__subtitle">7 технологий</h3>
       <p className='tech__text'>
