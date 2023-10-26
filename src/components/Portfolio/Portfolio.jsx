@@ -1,5 +1,4 @@
 import './Portfolio.css';
-import Link from '../LinkStyled/LinkStyled';
 
 export default function Portfolio() {
   return (
