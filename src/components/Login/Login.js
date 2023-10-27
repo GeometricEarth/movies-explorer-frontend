@@ -12,7 +12,7 @@ export default function Login() {
     <PageWithForm>
       <Greeting>Рады видеть!</Greeting>
       <Form
-        formData={formData}
+        formFields={formData}
         formType="login"
         name="login"
         submitText="Войти"

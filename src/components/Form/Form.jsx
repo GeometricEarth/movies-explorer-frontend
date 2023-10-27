@@ -1,15 +1,27 @@
+import useForm from '../../hooks/useForm';
 import './Form.css';
 
-export default function Form({ name, className, formData, formType, submitText }) {
+
+export default function Form({ name, className, formFields, formType, submitText }) {
+  const {
+    handleInputChange,
+    handleSubmit,
+    formData,
+    errors,
+    isValid,
+    resetForm,
+  } = useForm();
+
   return (
     <form className={'form ' + (className || '')} name={name}>
-      {formData.map(({ label, type, name }, index) => {
+      {formFields.map(({ label, type, name }, index) => {
         return (
           <div className="form__input-wrapper" key={index}>
             <label className="form__label" htmlFor={name}>
               {label}
             </label>
             <input className="form__input" type={type} name={name} id={name} />
+            <span>{errors[name]}</span>
           </div>
         );
       })}
