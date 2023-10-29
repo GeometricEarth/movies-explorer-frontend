@@ -10,7 +10,6 @@ export default function useForm(initialState = {}, onSubmit) {
     setErrors({ ...errors, [name]: validationMessage });
     setFormData({ ...formData, [name]: value });
     setIsValid(evt.target.form.checkValidity());
-    console.log(isValid);
   }
 
   function handleSubmit(evt) {
