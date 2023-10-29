@@ -9,10 +9,13 @@ export default function Form({
   formType,
   submitText,
 }) {
-  const initialState = {};
-  formFields.forEach((element) => {
-    initialState[element.name] = '';
-  });
+  useEffect(() => {
+    const initialState = {};
+    formFields.forEach((element) => {
+      initialState[element.name] = '';
+    });
+    resetForm();
+  }, []);
 
   const {
     handleInputChange,
@@ -24,10 +27,6 @@ export default function Form({
   } = useForm(initialState, (data) => {
     console.log(data);
   });
-
-  useEffect(() => {
-    resetForm();
-  }, []);
 
   return (
     <form
