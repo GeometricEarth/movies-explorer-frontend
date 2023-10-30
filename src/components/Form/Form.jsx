@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import useForm from '../../hooks/useForm';
 import './Form.css';
 
@@ -9,13 +8,10 @@ export default function Form({
   formType,
   submitText,
 }) {
-  useEffect(() => {
-    const initialState = {};
-    formFields.forEach((element) => {
-      initialState[element.name] = '';
-    });
-    resetForm();
-  }, []);
+  const initialState = {};
+  formFields.forEach((element) => {
+    initialState[element.name] = '';
+  });
 
   const {
     handleInputChange,
@@ -23,7 +19,6 @@ export default function Form({
     formData,
     errors,
     isValid,
-    resetForm,
   } = useForm(initialState, (data) => {
     console.log(data);
   });
