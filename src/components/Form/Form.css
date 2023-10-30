@@ -44,14 +44,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.form__error {
-  margin-top: 8px;
-  color: #ee3465;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 .form__submit {
   height: 45px;
   border: 0 transparent;
