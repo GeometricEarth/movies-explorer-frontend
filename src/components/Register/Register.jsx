@@ -8,17 +8,23 @@ export default function Register() {
     { label: 'Имя', type: 'text', name: 'name' },
     { label: 'E-mail', type: 'email', name: 'email' },
     { label: 'Пароль', type: 'password', name: 'password' },
-  ]
+  ];
   return (
     <PageWithForm>
       <Greeting>Добро пожаловать!</Greeting>
-      <Form formFields={formData} formType='register' name='register' submitText='Зарегистрироваться'></Form>
-      <div className='redirect'>
+      <Form
+        formFields={formData}
+        formType="register"
+        name="register"
+        submitText="Зарегистрироваться"
+        submitError=""
+      ></Form>
+      <div className="redirect">
         <p className="redirect__text">Уже зарегистрированы?</p>
         <Link className="redirect__link" to="/signin">
           Войти
         </Link>
       </div>
     </PageWithForm>
-  )
+  );
 }

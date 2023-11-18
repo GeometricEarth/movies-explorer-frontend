@@ -16,6 +16,7 @@ export default function Login() {
         formType="login"
         name="login"
         submitText="Войти"
+        submitError=""
       ></Form>
       <div className="redirect">
         <p className="redirect__text">Ещё не зарегистрированы?</p>

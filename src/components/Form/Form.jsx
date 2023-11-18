@@ -7,6 +7,7 @@ export default function Form({
   formFields,
   formType,
   submitText,
+  submitError,
 }) {
   const initialState = {};
   formFields.forEach((element) => {
@@ -50,7 +51,7 @@ export default function Form({
           </div>
         );
       })}
-      <span className="form__error">Что-то пошло не так...</span>
+      <span className="form__error">{submitError}</span>
       <button
         className={
           `form__submit form__submit_type_${formType} ` +

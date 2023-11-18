@@ -3,6 +3,16 @@
   flex-direction: column;
   padding-top: 6px;
 }
+.form__error {
+  color: #ee3465;
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  min-height: 10px;
+  letter-spacing: 0em;
+  text-align: left;
+}
 .field {
   display: flex;
   flex-direction: column;
@@ -15,7 +25,7 @@
   line-height: normal;
 }
 .field:not(:first-child) {
-  margin-top: 6px;
+  margin-top: 8px;
 }
 .field__input {
   width: 100%;
@@ -32,10 +42,10 @@
   box-sizing: border-box;
 }
 .field_input_error {
-  color: #EE3465;
+  color: #ee3465;
 }
 .field__error {
-  margin-top: 4px;
+  margin-top: 2px;
   color: #ee3465;
   font-size: 10px;
   line-height: 10px;
@@ -61,10 +71,10 @@
   color: #c2c2c2;
 }
 .form__submit_type_register {
-  margin-top: 77px;
+  margin-top: 69px;
 }
 .form__submit_type_login {
-  margin-top: 165px;
+  margin-top: 157px;
 }
 
 input:-webkit-autofill,
