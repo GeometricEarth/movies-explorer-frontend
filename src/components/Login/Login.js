@@ -12,10 +12,11 @@ export default function Login() {
     <PageWithForm>
       <Greeting>Рады видеть!</Greeting>
       <Form
-        formData={formData}
+        formFields={formData}
         formType="login"
         name="login"
         submitText="Войти"
+        submitError=""
       ></Form>
       <div className="redirect">
         <p className="redirect__text">Ещё не зарегистрированы?</p>

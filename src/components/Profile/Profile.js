@@ -5,7 +5,13 @@ import LinkStyled from '../LinkStyled/LinkStyled';
 import Header from '../Header/Header';
 import useForm from '../../hooks/useForm';
 
-function Profile({ user, onSave, submitError, isAuthorized, onOpenMobileMenu }) {
+function Profile({
+  user,
+  onSave,
+  submitError,
+  isAuthorized,
+  onOpenMobileMenu,
+}) {
   const [isEditable, setEditable] = useState(false);
 
   const editDone = (data) => {
@@ -21,7 +27,7 @@ function Profile({ user, onSave, submitError, isAuthorized, onOpenMobileMenu }) 
     handleInputChange,
     handleSubmit,
     formData,
-    // errors,
+    errors,
     isValid,
     resetForm,
   } = useForm(user ?? {}, editDone);
@@ -52,6 +58,14 @@ function Profile({ user, onSave, submitError, isAuthorized, onOpenMobileMenu }) 
               onChange={handleInputChange}
             />
           </div>
+          <p
+            className={
+              'profile__input-error ' +
+              (errors.name ? 'profile__input-error_visible' : '')
+            }
+          >
+            {errors.name}
+          </p>
           <span className="profile__divider"></span>
           <div className="profile__input-wrapper">
             <label className="profile__input-label" htmlFor="email">
@@ -70,6 +84,14 @@ function Profile({ user, onSave, submitError, isAuthorized, onOpenMobileMenu }) 
               onChange={handleInputChange}
             />
           </div>
+          <p
+            className={
+              'profile__input-error ' +
+              (errors.name ? 'profile__input-error_visible' : '')
+            }
+          >
+            {errors.email}
+          </p>
 
           {isEditable && (
             <>
