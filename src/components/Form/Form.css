@@ -89,11 +89,11 @@ input:-webkit-autofill:active {
 
 @media (max-width: 420px) {
   .form__submit_type_login {
-    margin-top: 253px;
+    margin-top: 245px;
     font-size: 12px;
   }
   .form__submit_type_register {
-    margin-top: 165px;
+    margin-top: 157px;
     font-size: 12px;
   }
 }
