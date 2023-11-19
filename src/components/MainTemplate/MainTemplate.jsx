@@ -8,7 +8,7 @@ function MainTemplate({ isAuthorized, onOpenMobileMenu, children }) {
         isAuthorized={isAuthorized}
         onOpenMobileMenu={onOpenMobileMenu}
       ></Header>
-      <main>{children}</main>
+      {children}
       <Footer></Footer>
     </>
   );

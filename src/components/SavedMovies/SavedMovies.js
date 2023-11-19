@@ -11,8 +11,7 @@ export default function SavedMovies() {
   const sortedMovies = movies.filter(movie=>movie.isSaved);
 
   return (
-    <>
-      <div className="movies">
+      <main className="movies">
         <SearchForm></SearchForm>
         <MoviesCardList
           moviesList={sortedMovies}
@@ -24,7 +23,6 @@ export default function SavedMovies() {
             Ещё
           </button>
         )}
-      </div>
-    </>
+      </main>
   );
 }

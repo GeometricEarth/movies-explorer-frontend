@@ -10,20 +10,22 @@ export default function Login() {
   ];
   return (
     <PageWithForm>
+      <section>
       <Greeting>Рады видеть!</Greeting>
-      <Form
-        formFields={formData}
-        formType="login"
-        name="login"
-        submitText="Войти"
-        submitError=""
-      ></Form>
-      <div className="redirect">
-        <p className="redirect__text">Ещё не зарегистрированы?</p>
-        <Link className="redirect__link" to="/signup">
-          Регистрация
-        </Link>
-      </div>
+        <Form
+          formFields={formData}
+          formType="login"
+          name="login"
+          submitText="Войти"
+          submitError=""
+        ></Form>
+        <div className="redirect">
+          <p className="redirect__text">Ещё не зарегистрированы?</p>
+          <Link className="redirect__link" to="/signup">
+            Регистрация
+          </Link>
+        </div>
+      </section>
     </PageWithForm>
   );
 }

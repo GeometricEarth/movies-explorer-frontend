@@ -11,20 +11,22 @@ export default function Register() {
   ];
   return (
     <PageWithForm>
-      <Greeting>Добро пожаловать!</Greeting>
-      <Form
-        formFields={formData}
-        formType="register"
-        name="register"
-        submitText="Зарегистрироваться"
-        submitError=""
-      ></Form>
-      <div className="redirect">
-        <p className="redirect__text">Уже зарегистрированы?</p>
-        <Link className="redirect__link" to="/signin">
-          Войти
-        </Link>
-      </div>
+      <section>
+        <Greeting>Добро пожаловать!</Greeting>
+        <Form
+          formFields={formData}
+          formType="register"
+          name="register"
+          submitText="Зарегистрироваться"
+          submitError=""
+        ></Form>
+        <div className="redirect">
+          <p className="redirect__text">Уже зарегистрированы?</p>
+          <Link className="redirect__link" to="/signin">
+            Войти
+          </Link>
+        </div>
+      </section>
     </PageWithForm>
   );
 }

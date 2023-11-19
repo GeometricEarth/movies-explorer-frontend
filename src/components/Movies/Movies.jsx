@@ -10,8 +10,7 @@ export default function Movies() {
   };
 
   return (
-    <>
-      <div className="movies">
+      <main className="movies">
         <SearchForm></SearchForm>
         <MoviesCardList
           moviesList={movies}
@@ -23,7 +22,6 @@ export default function Movies() {
             Ещё
           </button>
         )}
-      </div>
-    </>
+      </main>
   );
 }

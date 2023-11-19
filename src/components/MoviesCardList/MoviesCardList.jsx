@@ -5,7 +5,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList({ moviesList, isSavedMovies, onSave, onDelete }) {
   return (
-    <section className="movies-list">
+    <div className="movies-list">
       {!moviesList && <Preloader></Preloader>}
       <div className="movies-list__card-wrapper">
         {moviesList &&
@@ -21,7 +21,7 @@ function MoviesCardList({ moviesList, isSavedMovies, onSave, onDelete }) {
             );
           })}
       </div>
-    </section>
+    </div>
   );
 }
 
