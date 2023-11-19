@@ -14,6 +14,11 @@
   margin: 0;
   margin-bottom: 30px;
 }
+.portfolio__links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .portfolio__link {
   text-decoration: none;
   color: #fff;
@@ -29,7 +34,7 @@
   margin-left: auto;
   content: '↗';
 }
-.portfolio__link:not(:last-child) {
+.portfolio__link-wrapper:not(:last-child) {
   padding-bottom: 19px;
   border-bottom: 1px #424242 solid;
 }

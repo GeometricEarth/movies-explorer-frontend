@@ -33,6 +33,7 @@
   margin: 0;
   display: flex;
   gap: 20px;
+  line-height: 15px;
 }
 .footer__link {
   color: #fff;

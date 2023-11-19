@@ -22,12 +22,12 @@ export default function AboutProject() {
         </div>
       </div>
       <div className="about__time-line">
-        <div className="about__stage-duration about__stage-duration_color_green">
+        <p className="about__stage-duration about__stage-duration_color_green">
           1 неделя
-        </div>
-        <div className="about__stage-duration">4 недели</div>
-        <div className="about__stage-name">Back-end</div>
-        <div className="about__stage-name">Front-end</div>
+        </p>
+        <p className="about__stage-duration">4 недели</p>
+        <p className="about__stage-name">Back-end</p>
+        <p className="about__stage-name">Front-end</p>
       </div>
     </section>
   );
