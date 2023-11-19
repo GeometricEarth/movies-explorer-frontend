@@ -1,11 +1,11 @@
 import './AboutMe.css';
 import StudentFoto from '../../images/studentFoto.png';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import Link from '../LinkStyled/LinkStyled';
+import LinkStyled from '../LinkStyled/LinkStyled';
 
 export default function AboutMe() {
   return (
-    <section className="about-me" id='student'>
+    <section className="about-me" id="student">
       <SectionTitle>Студент</SectionTitle>
       <div className="about-me__wraper">
         <div className="about-me__column">
@@ -19,12 +19,14 @@ export default function AboutMe() {
             После того, как прошёл курс по&nbsp;веб-разработке, начал заниматься
             фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.
           </p>
-          <Link
+          <LinkStyled
             to="https://github.com/GeometricEarth"
+            target="_blank"
+            rel="noopener noreferrer"
             className="about-me__github-link"
           >
             Github
-          </Link>
+          </LinkStyled>
         </div>
         <img
           className="about-me_image"

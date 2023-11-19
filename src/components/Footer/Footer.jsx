@@ -11,10 +11,10 @@ export default function Footer() {
         <p className="footer__copyright">© 2023</p>
         <ul className="footer__links-list">
           <li>
-            <LinkStyled className="footer__link" to="https://practicum.yandex.ru/">Яндекс.Практикум</LinkStyled>
+            <LinkStyled className="footer__link" to="https://practicum.yandex.ru/" target="_blank">Яндекс.Практикум</LinkStyled>
           </li>
           <li>
-            <LinkStyled className="footer__link" to="https://github.com/GeometricEarth">Github</LinkStyled>
+            <LinkStyled className="footer__link" to="https://github.com/GeometricEarth" target="_blank">Github</LinkStyled>
           </li>
         </ul>
       </div>
