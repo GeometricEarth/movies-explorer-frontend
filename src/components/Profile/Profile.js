@@ -38,7 +38,7 @@ function Profile({
         isAuthorized={isAuthorized}
         onOpenMobileMenu={onOpenMobileMenu}
       ></Header>
-      <div className="profile">
+      <main className="profile">
         <h1 className="profile__greeting">Привет, {user.name}!</h1>
         <form name="profile" className="profile__form" onSubmit={handleSubmit}>
           <div className="profile__input-wrapper">
@@ -124,7 +124,7 @@ function Profile({
         <LinkStyled className="profile__logout" to="/signin">
           Выйти из аккаунта
         </LinkStyled>
-      </div>
+      </main>
     </>
   );
 }

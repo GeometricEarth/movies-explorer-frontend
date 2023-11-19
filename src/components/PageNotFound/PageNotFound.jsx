@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 export default function PageNotFound() {
   return (
 
-    <div className='page-not-found'>
-      <div>
+    <main className='page-not-found'>
+      <section>
         <h1 className='page-not-found__code'>404</h1>
         <p className='page-not-found__description'>Страница не найдена</p>
-      </div>
+      </section>
       <Link className='page-not-found__link'>Назад</Link>
-    </div>
+    </main>
   )
 }
