@@ -8,10 +8,10 @@
   margin: 0;
 }
 
-.section-title__underline_color_black {
+.section-title_underline-color_black {
   border-bottom: #000 1px solid;
 }
-.section-title__underline_color_gray {
+.section-title_underline-color_gray {
   border-bottom: #dadada 1px solid;
 }
 
