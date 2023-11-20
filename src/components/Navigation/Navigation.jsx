@@ -40,21 +40,23 @@ export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
               Сохранённые фильмы
             </LinkStyled>
           </nav>
-          <Button
-            classList="auth-buttons auth-buttons_type_profile"
-            onClick={handleClickProfile}
-          >
-            Аккаунт
-          </Button>
+          <nav className="auth">
+            <Button
+              classList="auth__button auth__button_type_profile"
+              onClick={handleClickProfile}
+            >
+              Аккаунт
+            </Button>
+          </nav>
         </>
       )}
       {!isAuthorized && (
-        <nav className="auth-buttons">
-          <LinkStyled className="auth-buttons_type_sign-up" to="/signup">
+        <nav className="auth">
+          <LinkStyled className="auth__button auth__button_type_sign-up" to="/signup">
             Регистрация
           </LinkStyled>
           <Button
-            classList="auth-buttons_type_sign-in"
+            classList="auth__button auth__button_type_sign-in"
             onClick={handleClickSignIn}
           >
             Войти
