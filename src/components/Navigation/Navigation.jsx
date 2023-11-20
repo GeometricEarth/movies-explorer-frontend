@@ -40,14 +40,12 @@ export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
               Сохранённые фильмы
             </LinkStyled>
           </nav>
-          <nav className="auth">
-            <Button
-              classList="auth__button auth__button_type_profile"
-              onClick={handleClickProfile}
-            >
-              Аккаунт
-            </Button>
-          </nav>
+          <Button
+            classList="button_type_profile"
+            onClick={handleClickProfile}
+          >
+            Аккаунт
+          </Button>
         </>
       )}
       {!isAuthorized && (
@@ -64,7 +62,7 @@ export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
         </nav>
       )}
       {isAuthorized && (
-        <Button classList="navigation__burger-menu-button" onClick={onOpenMobileMenu}></Button>
+        <Button classList="button_type_burger-menu" onClick={onOpenMobileMenu}></Button>
       )}
     </>
   );
