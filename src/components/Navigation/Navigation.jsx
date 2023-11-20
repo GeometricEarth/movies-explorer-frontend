@@ -41,7 +41,7 @@ export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
             </LinkStyled>
           </nav>
           <Button
-            classList="auth-buttons auth-buttons_type_profile"
+            classList="button_type_profile"
             onClick={handleClickProfile}
           >
             Аккаунт
@@ -49,12 +49,12 @@ export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
         </>
       )}
       {!isAuthorized && (
-        <nav className="auth-buttons">
-          <LinkStyled className="auth-buttons_type_sign-up" to="/signup">
+        <nav className="auth">
+          <LinkStyled className="auth__button auth__button_type_sign-up" to="/signup">
             Регистрация
           </LinkStyled>
           <Button
-            classList="auth-buttons_type_sign-in"
+            classList="auth__button auth__button_type_sign-in"
             onClick={handleClickSignIn}
           >
             Войти
@@ -62,7 +62,7 @@ export default function Navigation({ isAuthorized, onOpenMobileMenu }) {
         </nav>
       )}
       {isAuthorized && (
-        <Button classList="navigation__burger-menu-button" onClick={onOpenMobileMenu}></Button>
+        <Button classList="button_type_burger-menu" onClick={onOpenMobileMenu}></Button>
       )}
     </>
   );

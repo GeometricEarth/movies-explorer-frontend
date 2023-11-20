@@ -12,7 +12,15 @@
 .navigation__link:first-child {
   margin-right: 16px;
 }
-.navigation__burger-menu-button {
+.auth {
+  grid-column-start: 3;
+  margin-left: auto;
+}
+.auth__button {
+  font-size: 12px;
+  font-weight: 500;
+}
+.button_type_burger-menu {
   display: none;
   background-color: transparent;
   background-size: contain;
@@ -21,51 +29,42 @@
   grid-column-start: 3;
   margin-left: auto;
 }
-.auth-buttons {
-  grid-column-start: 3;
-  margin-left: auto;
-}
-.auth-buttons_type_profile {
+.button_type_profile {
   color: white;
   font-size: 14px;
-  line-height: 16px;
   font-weight: 500;
+  line-height: 16px;
   background: #313131;
   height: 32px;
   width: 100px;
   border-radius: 20px;
   margin-left: auto;
 }
-.auth-buttons_type_sign-in {
+.auth__button_type_sign-in {
   width: 76px;
   height: 32px;
   border-radius: 3px;
   color: black;
-  font-size: 12px;
-  font-weight: 500;
   background: #3ddc84;
 }
-.auth-buttons_type_sign-up {
-  font-size: 12px;
+.auth__button_type_sign-up {
   line-height: 16px;
-  font-weight: 500;
   color: white;
   text-decoration: none;
   margin-right: 30px;
-  margin-left: auto;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 786px) {
   .navigation {
     display: none;
   }
   .navigation__link {
     display: none;
   }
-  .auth-buttons_type_profile {
+  .button_type_profile {
     display: none;
   }
-  .navigation__burger-menu-button {
+  .button_type_burger-menu {
     display: block;
     width: 44px;
     height: 44px;
@@ -73,16 +72,16 @@
 }
 
 @media (max-width: 420px) {
-  .auth-buttons_type_sign-up {
+  .auth__button_type_sign-up {
     margin-right: 14px;
     font-size: 10px;
   }
-  .auth-buttons_type_sign-in {
+  .auth__button_type_sign-in {
     font-size: 10px;
     width: 54px;
     height: 26px;
   }
-  .navigation__burger-menu-button {
+  .button_type_burger-menu {
     width: 40px;
     height: 40px;
   }

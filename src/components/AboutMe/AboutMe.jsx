@@ -29,7 +29,7 @@ export default function AboutMe() {
           </LinkStyled>
         </div>
         <img
-          className="about-me_image"
+          className="about-me__image"
           src={StudentFoto}
           alt="Фотография студента"
         />
