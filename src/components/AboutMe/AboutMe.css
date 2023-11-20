@@ -46,7 +46,7 @@
   text-decoration: none;
   margin-top: auto;
 }
-.about-me_image {
+.about-me__image {
   width: 270px;
 }
 
@@ -69,7 +69,7 @@
     line-height: 18px;
     margin-top: 20px;
   }
-  .about-me_image {
+  .about-me__image {
     width: 255px;
   }
 }
@@ -97,7 +97,7 @@
     font-size: 11px;
     line-height: 16px;
   }
-  .about-me_image {
+  .about-me__image {
     width: 100%;
     max-width: 400px;
   }
