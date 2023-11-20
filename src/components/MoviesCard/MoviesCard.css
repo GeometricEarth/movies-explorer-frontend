@@ -1,6 +1,7 @@
 .movies-card {
   position: relative;
-  max-width: 369px;
+  max-width: 360px;
+  width: 100%;
 }
 .movies-card__image {
   width: 100%;
@@ -23,7 +24,7 @@
 .movies-card__button:hover {
   visibility: visible;
 }
-.movies-card__button_type_save{
+.movies-card__button_type_save {
   background: #313131;
   padding: 6px 10px;
   color: #fff;
