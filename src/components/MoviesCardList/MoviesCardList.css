@@ -7,13 +7,15 @@
   display: grid;
   gap: 43px 30px;
   padding-top: 70px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .movies-list__card-wrapper {
     gap: 47px 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    justify-items: center;
   }
 }
 
