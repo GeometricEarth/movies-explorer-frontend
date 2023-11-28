@@ -1,0 +1,42 @@
+.promo {
+  border-radius: 10px;
+  background: #272727;
+  margin: 20px 40px 0;
+  padding: 160px 0 30px;
+}
+.promo__title {
+  max-width: 730px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  margin: 0 auto 151px;
+}
+
+@media (max-width: 768px) {
+  .promo {
+    margin: 20px 20px 0;
+    padding: 350px 0 30px;
+  }
+  .promo__title {
+    margin-bottom: 314px;
+    max-width: 680px;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -1.6px;
+  }
+}
+
+@media (max-width: 425px) {
+  .promo {
+    margin: 14px 14px 0;
+    padding: 220px 0 17px;
+  }
+  .promo__title {
+    margin-bottom: 212px;
+    font-size: 29px;
+    line-height: 37px;
+    letter-spacing: -1.16px;
+  }
+}
