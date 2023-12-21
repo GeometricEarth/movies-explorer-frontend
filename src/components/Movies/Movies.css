@@ -2,6 +2,7 @@
   margin: 0 70px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 .movies__more-button {
   width: 320px;
