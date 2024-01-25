@@ -16,12 +16,12 @@ function SearchForm() {
           id="search-query"
           placeholder="Фильм"
         />
-        <button type="submit" className="search-form__find-button">
+        <button type="submit" className="button search-form__find-button">
           <img src={findButton} alt="Кнопка найти" />
         </button>
       </div>
       <input
-        className="search-form__shortsFilter"
+        className="search-form__filter"
         type="checkbox"
         name="shortsFilter"
         id="shortsFilter"
