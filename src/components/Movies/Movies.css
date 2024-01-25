@@ -19,7 +19,7 @@
   margin: 61px auto 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   .movies {
     margin: 0 30px;
   }
