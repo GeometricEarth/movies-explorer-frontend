@@ -10,7 +10,7 @@ export default function Portfolio() {
             href="https://github.com/GeometricEarth/how-to-learn"
             target="_blank"
             rel="noopener noreferrer"
-            className="portfolio__link"
+            className="link portfolio__link"
           >
             Статичный сайт
           </a>
@@ -20,7 +20,7 @@ export default function Portfolio() {
             href="https://geometricearth.github.io/russian-travel/"
             target="_blank"
             rel="noopener noreferrer"
-            className="portfolio__link"
+            className="link portfolio__link"
           >
             Адаптивный сайт
           </a>
@@ -30,7 +30,7 @@ export default function Portfolio() {
             href="https://github.com/GeometricEarth/react-mesto-api-full-gha"
             target="_blank"
             rel="noopener noreferrer"
-            className="portfolio__link"
+            className="link portfolio__link"
           >
             Одностраничное приложение
           </a>
