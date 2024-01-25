@@ -1,6 +1,7 @@
 .footer {
   margin: 0 70px;
-  padding-top: 79px;
+  padding-top: 157px;
+  flex-shrink: 0;
 }
 .footer__project-name {
   color: #8b8b8b;
