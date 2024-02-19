@@ -65,10 +65,16 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  cursor: pointer;
+  transition: opacity ease-out 0.3s;
+}
+.form__submit:hover:not(.form__submit_disabled) {
+  opacity: 70%;
 }
 .form__submit_disabled {
   background: #f8f8f8;
   color: #c2c2c2;
+  cursor: default;
 }
 .form__submit_type_register {
   margin-top: 69px;

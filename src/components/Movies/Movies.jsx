@@ -10,18 +10,18 @@ export default function Movies() {
   };
 
   return (
-      <main className="movies">
-        <SearchForm></SearchForm>
-        <MoviesCardList
-          moviesList={movies}
-          isSavedMovies={false}
-          onSave={handleSave}
-        ></MoviesCardList>
-        {movies.length > 10 && (
-          <button className="movies__more-button" type="button">
-            Ещё
-          </button>
-        )}
-      </main>
+    <main className="movies">
+      <SearchForm></SearchForm>
+      <MoviesCardList
+        moviesList={movies}
+        isSavedMovies={false}
+        onSave={handleSave}
+      ></MoviesCardList>
+      {movies.length > 10 && (
+        <button className="button movies__more-button" type="button">
+          Ещё
+        </button>
+      )}
+    </main>
   );
 }
