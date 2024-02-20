@@ -1,0 +1,45 @@
+.page-with-form {
+  max-width: 396px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.redirect {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 16px;
+}
+.redirect__text {
+  color: #8b8b8b;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+.redirect__link {
+  color: #4285f4;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+@media (max-width: 420px) {
+  .page-with-form {
+    max-width: 260px;
+  }
+  .redirect {
+    margin-top: 14px;
+    padding: 0 7px;
+  }
+  .redirect__text {
+    font-size: 12px;
+  }
+  .redirect__link {
+    font-size: 12px;
+  }
+}

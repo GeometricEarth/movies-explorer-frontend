@@ -1,0 +1,24 @@
+.section-title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  padding-bottom: 23px;
+  margin: 0;
+}
+
+.section-title_underline-color_black {
+  border-bottom: #000 1px solid;
+}
+.section-title_underline-color_gray {
+  border-bottom: #dadada 1px solid;
+}
+
+@media (max-width: 620px) {
+  .section-title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}

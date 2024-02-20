@@ -1,0 +1,139 @@
+.profile {
+  max-width: 410px;
+  margin: 0 auto;
+  margin-top: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.profile__greeting {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: normal;
+  font-style: normal;
+  margin: 0;
+}
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 123px;
+}
+.profile__input-wrapper {
+  display: flex;
+}
+.profile__input-label {
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  white-space: nowrap;
+}
+.profile__input {
+  color: #fff;
+  text-align: right;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: transparent;
+  border: none;
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+.profile__input-error {
+  visibility: hidden;
+  font-size: 8px;
+  line-height: 8px;
+  min-height: 8px;
+  margin: 0;
+  margin-top: 4px;
+  color: #ff004c;
+}
+.profile__input-error_visible {
+  visibility: visible;
+}
+.profile__divider {
+  border-top: solid #424242 1px;
+  margin: 4px 0 17px;
+}
+.profile__edit-button {
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 220px;
+  background: transparent;
+}
+.profile__submit-error {
+  color: #ff004c;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 189px 0 0;
+  min-height: 14px;
+}
+.profile__submit-error_hidden {
+  visibility: hidden;
+}
+.profile__submit-button {
+  color: #fff;
+  height: 45px;
+  border-radius: 3px;
+  background: #4285f4;
+  margin-top: 20px;
+  width: 100%;
+}
+.profile__submit-button_disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
+}
+.profile__logout {
+  color: #ee3465;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    margin-top: 236px;
+  }
+  .profile__form {
+    margin-top: 96px;
+  }
+  .profile__edit-button {
+    margin-top: 210px;
+  }
+  .profile__submit-error {
+    margin-top: 184px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile {
+    margin-top: 70px;
+    max-width: 260px;
+  }
+  .profile__form {
+    margin-top: 80px;
+  }
+  .profile__edit-button {
+    margin-top: 379px;
+    font-size: 12px;
+  }
+  .profile__logout {
+    font-size: 12px;
+  }
+  .profile__submit-error {
+    margin-top: 327px;
+  }
+}

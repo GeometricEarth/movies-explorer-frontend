@@ -1,0 +1,30 @@
+.header {
+  margin: 0 70px;
+  min-height: 74px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+  background-image: url('../../images/logo.svg');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 0 30px;
+    grid-template-columns: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    margin: 0 14px;
+  }
+}

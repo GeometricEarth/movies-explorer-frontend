@@ -1,0 +1,88 @@
+.search-form {
+  padding: 80px 0 39px;
+  border-bottom: 1px solid #424242;
+}
+
+.search-form__wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.search-form__input {
+  border-radius: 8px;
+  background: #2f2f2f;
+  height: 50px;
+  width: 100%;
+  padding: 0;
+  padding-left: 20px;
+  border: none;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.search-form__find-button {
+  border: none;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+}
+
+.search-form__filter {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.search-form__filter + label {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+.search-form__filter + label::before {
+  content: '';
+  background: url('../../images/checkbox.svg') no-repeat center center;
+  width: 36px;
+  height: 20px;
+  margin-right: 12px;
+  transition: all ease-out 0.3s;
+}
+.search-form__filter:hover + label::before {
+  cursor: pointer;
+  opacity: 70%;
+}
+.search-form__filter:checked + label::before {
+  background-image: url('../../images/checkbox__checked.svg');
+}
+
+@media (max-width: 768px) {
+  .search-form__wrapper {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .search-form {
+    padding: 80px 4px 39px;
+  }
+  .search-form__wrapper {
+    margin-bottom: 46px;
+  }
+  .search-form__input {
+    padding-left: 13px;
+    height: 44px;
+  }
+  .search-form__filter + label {
+    font-size: 11px;
+  }
+  .search-form__filter + label::before {
+    margin-right: 13px;
+  }
+}
