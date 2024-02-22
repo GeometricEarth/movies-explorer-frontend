@@ -10,6 +10,20 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
   justify-content: center;
 }
+.movies-list__more-button {
+  width: 320px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #424242;
+  background: none;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 61px auto 0;
+}
 
 @media (max-width: 900px) {
   .movies-list__card-wrapper {
@@ -23,5 +37,8 @@
   .movies-list__card-wrapper {
     padding-top: 40px;
     gap: 38px;
+  }
+  .movies-list {
+    width: 240px;
   }
 }

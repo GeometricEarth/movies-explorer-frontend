@@ -17,11 +17,6 @@ export default function Movies() {
         isSavedMovies={false}
         onSave={handleSave}
       ></MoviesCardList>
-      {movies.length > 10 && (
-        <button className="button movies__more-button" type="button">
-          Ещё
-        </button>
-      )}
     </main>
   );
 }
