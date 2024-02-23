@@ -61,13 +61,13 @@ function MoviesCardList({ moviesList, isSavedMovies, onSave, onDelete }) {
             );
           })}
       </div>
-      <button
+      {moviesList > displayedCards && <button
         className="button movies-list__more-button"
         type="button"
         onClick={handleMoreClick}
       >
         Ещё
-      </button>
+      </button>}
     </div>
   );
 }
