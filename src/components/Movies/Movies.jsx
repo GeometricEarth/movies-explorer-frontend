@@ -1,10 +1,11 @@
 import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-
-import movies from '../../utils/mockData';
+import { useState } from 'react';
 
 export default function Movies() {
+  const [moviesList, setMoviesList] = useState([]);
+
   const handleSave = (cardId) => {
     console.log(cardId);
   };
@@ -13,10 +14,10 @@ export default function Movies() {
     <main className="movies">
       <SearchForm></SearchForm>
       <MoviesCardList
-        moviesList={movies}
+        moviesList={moviesList}
         isSavedMovies={false}
         onSave={handleSave}
       ></MoviesCardList>
-    </main>
+    </main >
   );
 }
