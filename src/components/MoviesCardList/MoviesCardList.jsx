@@ -19,7 +19,9 @@ function MoviesCardList({ moviesList, isSavedMovies, onSave, onDelete }) {
         cardInRow = 2;
       }
       if (viewWidth < 690) {
-        setRowsCount(5);
+        if (rowsCount < 5) {
+          setRowsCount(5);
+        }
         cardInRow = 1;
       }
 
