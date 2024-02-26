@@ -13,8 +13,6 @@ function MoviesCardList({ moviesList, isSavedMovies, onSave, onDelete }) {
       const viewWidth = document.documentElement.clientWidth;
       let cardInRow = 3;
 
-      console.log(viewWidth);
-
       if (viewWidth < 1280) {
         cardInRow = 2;
       }
