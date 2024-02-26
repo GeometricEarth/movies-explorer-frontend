@@ -11,6 +11,13 @@ export default function Movies() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setShorts(!!(Number(localStorage.getItem('isShorts'))));
+    console.log(localStorage.getItem('isShorts'));
+  }, [])
+
+  useEffect(() => {
+    console.log(`s ${isShorts}`);
+    localStorage.setItem('isShorts', isShorts ? 1 : 0);
     if (isShorts) {
       const shorts = moviesList.filter((movie) => movie.duration < 40);
       setFilteredList(shorts);
@@ -33,10 +40,13 @@ export default function Movies() {
         const filteredFilms = data.filter((film) => {
           return film.nameRU.includes(searchQuery);
         });
-        if (true) {
+        setMoviesList(filteredFilms);
+        if (filteredFilms.length === 0) {
           return setError('Ничего не найдено');
         }
-        setMoviesList(filteredFilms);
+        setError('');
+        localStorage.setItem('filteredFilms', JSON.stringify(filteredFilms));
+        localStorage.setItem('searchQuery', searchQuery);
       })
       .catch((err) => {
         setError(err.toString());
