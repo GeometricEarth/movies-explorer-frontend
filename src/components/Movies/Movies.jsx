@@ -8,7 +8,7 @@ export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
   const [isShorts, setShorts] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (isShorts) {
@@ -27,18 +27,19 @@ export default function Movies() {
     getMovies(searchQuery)
       .then((data) => {
         if (!data) {
-          throw new Error(
-            'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
-          );
+          setError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
+          return
         }
         const filteredFilms = data.filter((film) => {
           return film.nameRU.includes(searchQuery);
         });
+        if (true) {
+          return setError('Ничего не найдено');
+        }
         setMoviesList(filteredFilms);
       })
       .catch((err) => {
-        // console.error(`ERR: ${err}`);
-        setError(err);
+        setError(err.toString());
       });
   };
 
@@ -49,6 +50,7 @@ export default function Movies() {
         setShorts={setShorts}
         onSubmit={handleSearch}
       ></SearchForm>
+      <div className='movies__message'>{error}</div>
       <MoviesCardList
         moviesList={filteredList}
         isSavedMovies={false}
