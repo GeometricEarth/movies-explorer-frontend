@@ -1,10 +1,11 @@
 import './MoviesCard.css';
 
 function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
-  const { image, title, duration, isSaved, movieId } = movieCard;
+  const { image, nameRU, duration, isSaved, movieId } = movieCard;
+  const baseURL = "https://api.nomoreparties.co/";
   return (
     <div className="movies-card">
-      <img className="movies-card__image" src={image} alt={title} />
+      <img className="movies-card__image" src={baseURL + image.url} alt={nameRU} />
       {!isSavedMovies & !isSaved ? (
         <button
           className="movies-card__button movies-card__button_type_save"
@@ -34,7 +35,7 @@ function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
       )}
 
       <div className="movies-card__description">
-        <p className="movies-card__title">{title}</p>
+        <p className="movies-card__title">{nameRU}</p>
         <span className="movies-card__duration">
           {parseInt(duration / 60) + 'ч ' + (duration % 60) + 'м'}
         </span>

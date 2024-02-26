@@ -1,9 +1,14 @@
 import './SearchForm.css';
 import findButton from '../../images/find.svg';
 
-function SearchForm() {
+function SearchForm({ isShorts, setShorts, onSubmit }) {
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    onSubmit(evt.target.search.value);
+  }
+
+  const handleCheckFilter = () => {
+    setShorts(!isShorts);
   }
 
   return (
@@ -12,8 +17,8 @@ function SearchForm() {
         <input
           className="search-form__input"
           type="text"
-          name="search-query"
-          id="search-query"
+          name="search"
+          id="search"
           placeholder="Фильм"
         />
         <button type="submit" className="button search-form__find-button">
@@ -25,6 +30,8 @@ function SearchForm() {
         type="checkbox"
         name="shortsFilter"
         id="shortsFilter"
+        checked={isShorts}
+        onChange={handleCheckFilter}
       />
       <label htmlFor="shortsFilter">Короткометражки</label>
     </form>
