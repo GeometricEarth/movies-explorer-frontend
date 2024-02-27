@@ -2,6 +2,8 @@ import PageWithForm from '../PageWithForm/PageWithForm';
 import Greeting from '../Greeting/Greeting';
 import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
+import { register } from '../utils/auth';
+
 
 export default function Register() {
   const formData = [
@@ -9,6 +11,12 @@ export default function Register() {
     { label: 'E-mail', type: 'email', name: 'email' },
     { label: 'Пароль', type: 'password', name: 'password' },
   ];
+
+  const handleRegister = (formData)=>{
+    register(formData).then((res)=>{
+      
+    })
+  }
   return (
     <PageWithForm>
       <section>
@@ -19,6 +27,7 @@ export default function Register() {
           name="register"
           submitText="Зарегистрироваться"
           submitError=""
+          onSubmit= {handleRegister}
         ></Form>
         <div className="redirect">
           <p className="redirect__text">Уже зарегистрированы?</p>

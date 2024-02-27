@@ -8,6 +8,7 @@ export default function Form({
   formType,
   submitText,
   submitError,
+  onSubmit
 }) {
   const initialState = {};
   formFields.forEach((element) => {
@@ -20,9 +21,7 @@ export default function Form({
     formData,
     errors,
     isValid,
-  } = useForm(initialState, (data) => {
-    console.log(data);
-  });
+  } = useForm(initialState, onSubmit);
 
   return (
     <form
