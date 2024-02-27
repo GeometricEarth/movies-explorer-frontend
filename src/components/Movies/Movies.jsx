@@ -11,16 +11,15 @@ export default function Movies() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setShorts(!!(Number(localStorage.getItem('isShorts'))));
-    console.log(localStorage.getItem('isShorts'));
-  }, [])
+    setShorts(!!Number(localStorage.getItem('isShorts')));
+    setMoviesList(JSON.parse(localStorage.getItem('filteredFilms')));
+  }, []);
 
   useEffect(() => {
-    console.log(`s ${isShorts}`);
-    localStorage.setItem('isShorts', isShorts ? 1 : 0);
     if (isShorts) {
       const shorts = moviesList.filter((movie) => movie.duration < 40);
       setFilteredList(shorts);
+      setError(shorts.length === 0 ? 'Ничего не найдено' : '');
       return;
     }
     setFilteredList(moviesList);
@@ -30,37 +29,46 @@ export default function Movies() {
     console.log(cardId);
   };
 
-  const handleSearch = (searchQuery) => {
-    getMovies(searchQuery)
+  const handleSearch = (query) => {
+    setError('');
+    setMoviesList([]);
+    getMovies(query)
       .then((data) => {
         if (!data) {
-          setError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
-          return
+          setError(
+            'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+          );
+          return;
         }
         const filteredFilms = data.filter((film) => {
-          return film.nameRU.includes(searchQuery);
+          return film.nameRU.includes(query);
         });
         setMoviesList(filteredFilms);
         if (filteredFilms.length === 0) {
-          return setError('Ничего не найдено');
+          setError('Ничего не найдено');
         }
-        setError('');
+
         localStorage.setItem('filteredFilms', JSON.stringify(filteredFilms));
-        localStorage.setItem('searchQuery', searchQuery);
+        localStorage.setItem('searchQuery', query);
       })
       .catch((err) => {
         setError(err.toString());
       });
   };
 
+  const handleSetShorts = (value) => {
+    localStorage.setItem('isShorts', value ? 1 : 0);
+    setShorts(value);
+  };
+
   return (
     <main className="movies">
       <SearchForm
         isShorts={isShorts}
-        setShorts={setShorts}
+        setShorts={handleSetShorts}
         onSubmit={handleSearch}
       ></SearchForm>
-      <div className='movies__message'>{error}</div>
+      <div className="movies__message">{error}</div>
       <MoviesCardList
         moviesList={filteredList}
         isSavedMovies={false}
