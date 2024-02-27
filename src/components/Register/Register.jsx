@@ -2,7 +2,7 @@ import PageWithForm from '../PageWithForm/PageWithForm';
 import Greeting from '../Greeting/Greeting';
 import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
-import { register } from '../utils/auth';
+import { register } from '../../utils/auth';
 
 
 export default function Register() {
@@ -12,9 +12,9 @@ export default function Register() {
     { label: 'Пароль', type: 'password', name: 'password' },
   ];
 
-  const handleRegister = (formData)=>{
-    register(formData).then((res)=>{
-      
+  const handleRegister = (userData) => {
+    register(userData).then((res) => {
+      console.log(res);
     })
   }
   return (
@@ -27,7 +27,7 @@ export default function Register() {
           name="register"
           submitText="Зарегистрироваться"
           submitError=""
-          onSubmit= {handleRegister}
+          onSubmit={handleRegister}
         ></Form>
         <div className="redirect">
           <p className="redirect__text">Уже зарегистрированы?</p>

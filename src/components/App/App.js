@@ -10,7 +10,7 @@ import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import Profile from '../Profile/Profile';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
   const [isAuthorized, setAuthorized] = useState(false);
@@ -20,7 +20,6 @@ function App() {
     email: 'pochta@yandex.ru',
   });
   const [currentUser, setCurrentUser] = useState({});
-  const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleCloseMobileMenu = () => {
     setMobileMenuOpened(false);

@@ -1,6 +1,10 @@
 const sendRequest = (path, settings) => {
-  const development = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
-  const apiUrl = development ? 'http://127.0.0.1:3001' : 'api.geomovie.nomoredomainsicu.ru';
+  const development =
+    !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
+  const apiUrl = development
+    ? 'http://127.0.0.1:3001'
+    : 'https://api.geomovie.nomoredomainsicu.ru';
 
   return fetch(`${apiUrl}${path}`, settings).then((res) => {
     if (!res.ok) {
@@ -34,7 +38,11 @@ export const register = (userData) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(userData),
-  });
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => console.log(err));
 };
 
 export const getUserData = () => {
