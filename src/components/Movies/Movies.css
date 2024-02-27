@@ -4,6 +4,10 @@
   flex-direction: column;
   flex: 1;
 }
+.movies__message {
+  text-align: center;
+  margin-top: 25px;
+}
 
 @media (max-width: 770px) {
   .movies {
