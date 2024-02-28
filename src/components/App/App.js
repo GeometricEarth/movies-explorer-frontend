@@ -1,6 +1,8 @@
 import './App.css';
+
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+
 import MainTemplate from '../MainTemplate/MainTemplate';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -10,16 +12,19 @@ import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import Profile from '../Profile/Profile';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
   const [isAuthorized, setAuthorized] = useState(false);
   const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+
   const [user, setUser] = useState({
     name: 'Виталий',
     email: 'pochta@yandex.ru',
   });
-  const [currentUser, setCurrentUser] = useState({});
 
   const handleCloseMobileMenu = () => {
     setMobileMenuOpened(false);
@@ -31,9 +36,9 @@ function App() {
     setUser(user);
   };
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <div className="page">
-        <div className="page__content">
+    <div className="page">
+      <div className="page__content">
+        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser, isAuthorized, setAuthorized }}>
           <Routes>
             <Route
               path="/"
@@ -49,12 +54,15 @@ function App() {
             <Route
               path="/movies"
               element={
+                <ProtectedRoute isAuthorized = {isAuthorized}>
+
                 <MainTemplate
                   isAuthorized={isAuthorized}
                   onOpenMobileMenu={handleOpenMobileMenu}
-                >
+                  >
                   <Movies />
                 </MainTemplate>
+                  </ProtectedRoute>
               }
             ></Route>
             <Route
@@ -81,6 +89,7 @@ function App() {
             ></Route>
             <Route path="/signin" element={<Login />}></Route>
             <Route path="/signup" element={<Register />}></Route>
+
             <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
 
@@ -88,9 +97,9 @@ function App() {
             isOpened={isMobileMenuOpened}
             onClose={handleCloseMobileMenu}
           ></MobileMenu>
-        </div>
+        </CurrentUserContext.Provider>
       </div>
-    </CurrentUserContext.Provider>
+    </div>
   );
 }
 

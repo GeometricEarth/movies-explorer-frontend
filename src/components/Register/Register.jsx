@@ -3,9 +3,16 @@ import Greeting from '../Greeting/Greeting';
 import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
 import { register } from '../../utils/auth';
+import { useContext } from 'react';
+import {useNavigate} from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+
 
 
 export default function Register() {
+  const {setCurrentUser, setAuthorized} = useContext(CurrentUserContext)
+  const navigate = useNavigate();
+
   const formData = [
     { label: 'Имя', type: 'text', name: 'name' },
     { label: 'E-mail', type: 'email', name: 'email' },
@@ -13,8 +20,10 @@ export default function Register() {
   ];
 
   const handleRegister = (userData) => {
-    register(userData).then((res) => {
-      console.log(res);
+    register(userData).then((user) => {
+      setCurrentUser(CurrentUserContext);
+      setAuthorized(true);
+      navigate('/movies');
     })
   }
   return (
