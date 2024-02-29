@@ -1,4 +1,4 @@
-import requestErrorHandler from "./requestErrorHandler";
+import requestErrorHandler from './requestErrorHandler';
 
 const sendRequest = (path, settings) => {
   const development =
