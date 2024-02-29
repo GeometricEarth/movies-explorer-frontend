@@ -1,13 +1,11 @@
 import { Navigate } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useContext } from 'react';
 
-export default function ProtectedRoute({
-  element: Component,
-  isLoggedIn: isAuthorized,
-  children,
-  ...props
-}) {
+export default function ProtectedRoute({ renderElement, children, ...props }) {
+  const { isAuthorized } = useContext(CurrentUserContext);
   return isAuthorized ? (
-    <Component {...props} />
+    <>{renderElement()}</>
   ) : (
     <Navigate to="/signin" replace />
   );

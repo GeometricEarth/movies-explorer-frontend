@@ -38,7 +38,9 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser, isAuthorized, setAuthorized }}>
+        <CurrentUserContext.Provider
+          value={{ currentUser, setCurrentUser, isAuthorized, setAuthorized }}
+        >
           <Routes>
             <Route
               path="/"
@@ -54,15 +56,16 @@ function App() {
             <Route
               path="/movies"
               element={
-                <ProtectedRoute isAuthorized = {isAuthorized}>
-
-                <MainTemplate
+                <ProtectedRoute
                   isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                  >
-                  <Movies />
-                </MainTemplate>
-                  </ProtectedRoute>
+                  renderElement={() => {
+                    return (
+                      <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
+                        <Movies />
+                      </MainTemplate>
+                    );
+                  }}
+                ></ProtectedRoute>
               }
             ></Route>
             <Route
