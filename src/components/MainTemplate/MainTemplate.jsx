@@ -1,7 +1,10 @@
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { useContext } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function MainTemplate({ isAuthorized, onOpenMobileMenu, children }) {
+function MainTemplate({ onOpenMobileMenu, children }) {
+  const { isAuthorized } = useContext(CurrentUserContext);
   return (
     <>
       <Header
