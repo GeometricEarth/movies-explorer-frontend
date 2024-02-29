@@ -3,7 +3,7 @@ import Greeting from '../Greeting/Greeting';
 import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
 import { register } from '../../utils/auth';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
@@ -11,6 +11,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function Register() {
   const {setCurrentUser, setAuthorized} = useContext(CurrentUserContext)
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const formData = [
@@ -21,9 +22,14 @@ export default function Register() {
 
   const handleRegister = (userData) => {
     register(userData).then((user) => {
-      setCurrentUser(CurrentUserContext);
+      setCurrentUser(user);
       setAuthorized(true);
       navigate('/movies');
+    }).catch((err)=>{
+      setErrorMessage(err);
+      setAuthorized(false);
+
+      console.dir(err)
     })
   }
   return (
@@ -35,7 +41,7 @@ export default function Register() {
           formType="register"
           name="register"
           submitText="Зарегистрироваться"
-          submitError=""
+          submitError={errorMessage}
           onSubmit={handleRegister}
         ></Form>
         <div className="redirect">
