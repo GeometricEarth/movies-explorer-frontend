@@ -4,13 +4,11 @@ import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
 import { register } from '../../utils/auth';
 import { useContext, useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-
-
 export default function Register() {
-  const {setCurrentUser, setAuthorized} = useContext(CurrentUserContext)
+  const { setCurrentUser, setAuthorized } = useContext(CurrentUserContext);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
@@ -22,14 +20,13 @@ export default function Register() {
 
   const handleRegister = (userData) => {
     register(userData).then((user) => {
-      setCurrentUser(user);
+      const { name, email } = userData;
+      setCurrentUser({ name, email });
       setAuthorized(true);
       navigate('/movies');
-    }).catch((err)=>{
+    }).catch((err) => {
       setErrorMessage(err);
       setAuthorized(false);
-
-      console.dir(err)
     })
   }
   return (
