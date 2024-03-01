@@ -11,8 +11,9 @@ export default function Movies() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    const filmsList = JSON.parse(localStorage.getItem('filteredFilms'));
+    setMoviesList(filmsList || []);
     setShorts(!!Number(localStorage.getItem('isShorts')));
-    setMoviesList(JSON.parse(localStorage.getItem('filteredFilms')));
   }, []);
 
   useEffect(() => {
