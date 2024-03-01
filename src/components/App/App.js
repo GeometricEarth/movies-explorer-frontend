@@ -1,7 +1,7 @@
 import './App.css';
 
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import MainTemplate from '../MainTemplate/MainTemplate';
 import Main from '../Main/Main';
@@ -15,6 +15,7 @@ import Profile from '../Profile/Profile';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { getUserData } from '../../utils/auth';
 
 function App() {
   const [isAuthorized, setAuthorized] = useState(false);
@@ -25,6 +26,13 @@ function App() {
     name: 'Виталий',
     email: 'pochta@yandex.ru',
   });
+
+  useEffect(() => {
+    getUserData().then((user) => {
+      setAuthorized(true);
+      setCurrentUser(user);
+    });
+  }, []);
 
   const handleCloseMobileMenu = () => {
     setMobileMenuOpened(false);
@@ -57,7 +65,7 @@ function App() {
               path="/movies"
               element={
                 <ProtectedRoute
-                  isAuthorized={isAuthorized}
+                  route="/movies"
                   renderElement={() => {
                     return (
                       <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
