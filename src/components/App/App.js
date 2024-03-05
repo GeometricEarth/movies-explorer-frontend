@@ -52,6 +52,10 @@ function App() {
     signOut()
       .then(() => {
         setAuthorized(false);
+        setCurrentUser({});
+        localStorage.removeItem('filteredFilms');
+        localStorage.removeItem('searchQuery');
+        localStorage.removeItem('isShorts');
         navigate('/');
       })
       .catch(console.log);
@@ -108,7 +112,7 @@ function App() {
                     return (
                       <Profile
                         onSave={handleSaveUserData}
-                        onLogOut = {handleLogOut}
+                        onLogOut={handleLogOut}
                         onOpenMobileMenu={handleOpenMobileMenu}
                       />
                     );
