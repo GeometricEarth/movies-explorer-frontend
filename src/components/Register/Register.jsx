@@ -13,9 +13,9 @@ export default function Register() {
   const navigate = useNavigate();
 
   const formData = [
-    { label: 'Имя', type: 'text', name: 'name' },
-    { label: 'E-mail', type: 'email', name: 'email' },
-    { label: 'Пароль', type: 'password', name: 'password' },
+    { label: 'Имя', type: 'text', name: 'name', pattern: "/^[\p{L}\s\-]+$/u" },
+    { label: 'E-mail', type: 'email', name: 'email', pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" },
+    { label: 'Пароль', type: 'password', name: 'password', pattern: [] },
   ];
 
   const handleRegister = (userData) => {

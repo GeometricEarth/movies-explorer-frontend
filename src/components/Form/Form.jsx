@@ -29,7 +29,7 @@ export default function Form({
       name={name}
       onSubmit={handleSubmit}
     >
-      {formFields.map(({ label, type, name }, index) => {
+      {formFields.map(({ label, type, name, pattern }, index) => {
         return (
           <div className="field" key={index}>
             <label className="field__label" htmlFor={name}>
@@ -40,6 +40,7 @@ export default function Form({
                 'field__input ' + (!errors[name] ? '' : 'field_input_error')
               }
               required
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               type={type}
               name={name}
               id={name}
