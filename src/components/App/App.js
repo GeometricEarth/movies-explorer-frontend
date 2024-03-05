@@ -1,6 +1,8 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import MainTemplate from '../MainTemplate/MainTemplate';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -10,17 +12,32 @@ import Register from '../Register/Register';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import Profile from '../Profile/Profile';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { getUserData, signOut } from '../../utils/auth';
 
 function App() {
   const [isAuthorized, setAuthorized] = useState(false);
   const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
-  const [user, setUser] = useState({
-    name: 'Виталий',
-    email: 'pochta@yandex.ru',
-  });
   const [currentUser, setCurrentUser] = useState({});
-  const [isLoggedIn, setLoggedIn] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthorized) {
+      getUserData()
+        .then((user) => {
+          setAuthorized(true);
+          setCurrentUser(user);
+          navigate(location.pathname);
+        })
+        .catch((err) => {
+          setAuthorized(false);
+          console.log(err);
+        });
+    }
+  }, []);
 
   const handleCloseMobileMenu = () => {
     setMobileMenuOpened(false);
@@ -29,20 +46,32 @@ function App() {
     setMobileMenuOpened(true);
   };
   const handleSaveUserData = (user) => {
-    setUser(user);
+    setCurrentUser(user);
   };
+  const handleLogOut = () => {
+    signOut()
+      .then(() => {
+        setAuthorized(false);
+        setCurrentUser({});
+        localStorage.removeItem('filteredFilms');
+        localStorage.removeItem('searchQuery');
+        localStorage.removeItem('isShorts');
+        navigate('/');
+      })
+      .catch(console.log);
+  };
+
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <div className="page">
-        <div className="page__content">
+    <div className="page">
+      <div className="page__content">
+        <CurrentUserContext.Provider
+          value={{ currentUser, setCurrentUser, isAuthorized, setAuthorized }}
+        >
           <Routes>
             <Route
               path="/"
               element={
-                <MainTemplate
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                >
+                <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
                   <Main />
                 </MainTemplate>
               }
@@ -50,38 +79,50 @@ function App() {
             <Route
               path="/movies"
               element={
-                <MainTemplate
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                >
-                  <Movies />
-                </MainTemplate>
+                <ProtectedRoute
+                  renderElement={() => {
+                    return (
+                      <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
+                        <Movies />
+                      </MainTemplate>
+                    );
+                  }}
+                ></ProtectedRoute>
               }
             ></Route>
             <Route
               path="/saved-movies"
               element={
-                <MainTemplate
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                >
-                  <SavedMovies />
-                </MainTemplate>
+                <ProtectedRoute
+                  renderElement={() => {
+                    return (
+                      <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
+                        <SavedMovies />
+                      </MainTemplate>
+                    );
+                  }}
+                ></ProtectedRoute>
               }
             ></Route>
             <Route
               path="/profile"
               element={
-                <Profile
-                  user={user}
-                  onSave={handleSaveUserData}
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                />
+                <ProtectedRoute
+                  renderElement={() => {
+                    return (
+                      <Profile
+                        onSave={handleSaveUserData}
+                        onLogOut={handleLogOut}
+                        onOpenMobileMenu={handleOpenMobileMenu}
+                      />
+                    );
+                  }}
+                ></ProtectedRoute>
               }
             ></Route>
             <Route path="/signin" element={<Login />}></Route>
             <Route path="/signup" element={<Register />}></Route>
+
             <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
 
@@ -89,9 +130,9 @@ function App() {
             isOpened={isMobileMenuOpened}
             onClose={handleCloseMobileMenu}
           ></MobileMenu>
-        </div>
+        </CurrentUserContext.Provider>
       </div>
-    </CurrentUserContext.Provider>
+    </div>
   );
 }
 

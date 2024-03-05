@@ -3,7 +3,7 @@ import findButton from '../../images/find.svg';
 import { useState } from 'react';
 
 function SearchForm({ isShorts, setShorts, onSubmit, query }) {
-  const storedSearchQuery = localStorage.getItem('searchQuery')
+  const storedSearchQuery = localStorage.getItem('searchQuery') || '';
   const [searchQuery, setSearchQuery] = useState(storedSearchQuery);
 
   const handleSubmit = (evt) => {

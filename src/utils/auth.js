@@ -1,10 +1,16 @@
+import requestErrorHandler from './requestErrorHandler';
+
 const sendRequest = (path, settings) => {
-  const development = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
-  const apiUrl = development ? 'http://127.0.0.1:3001' : 'api.geomovie.nomoredomainsicu.ru';
+  const development =
+    !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
+  const apiUrl = development
+    ? 'http://127.0.0.1:3001'
+    : 'https://api.geomovie.nomoredomainsicu.ru';
 
   return fetch(`${apiUrl}${path}`, settings).then((res) => {
     if (!res.ok) {
-      return Promise.reject(`Oшибка: ${res.status}`);
+      return Promise.reject(requestErrorHandler(res));
     }
     return res;
   });
@@ -34,6 +40,8 @@ export const register = (userData) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(userData),
+  }).then((res) => {
+    return res.json();
   });
 };
 
@@ -44,14 +52,12 @@ export const getUserData = () => {
     headers: {
       'Content-Type': 'application/json',
     },
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .catch((err) => console.log(err));
+  }).then((res) => {
+    return res.json();
+  });
 };
 
-export const logout = () => {
+export const signOut = () => {
   return sendRequest('/signout', {
     method: 'DELETE',
     credentials: 'include',

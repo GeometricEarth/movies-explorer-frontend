@@ -2,19 +2,31 @@ import PageWithForm from '../PageWithForm/PageWithForm';
 import Greeting from '../Greeting/Greeting';
 import Form from '../Form/Form';
 import { Link } from 'react-router-dom';
-import { register } from '../utils/auth';
-
+import { register } from '../../utils/auth';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function Register() {
+  const { setCurrentUser, setAuthorized } = useContext(CurrentUserContext);
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+
   const formData = [
     { label: 'Имя', type: 'text', name: 'name' },
     { label: 'E-mail', type: 'email', name: 'email' },
     { label: 'Пароль', type: 'password', name: 'password' },
   ];
 
-  const handleRegister = (formData)=>{
-    register(formData).then((res)=>{
-      
+  const handleRegister = (userData) => {
+    register(userData).then((user) => {
+      const { name, email } = userData;
+      setCurrentUser({ name, email });
+      setAuthorized(true);
+      navigate('/movies');
+    }).catch((err) => {
+      setErrorMessage(err);
+      setAuthorized(false);
     })
   }
   return (
@@ -26,8 +38,8 @@ export default function Register() {
           formType="register"
           name="register"
           submitText="Зарегистрироваться"
-          submitError=""
-          onSubmit= {handleRegister}
+          submitError={errorMessage}
+          onSubmit={handleRegister}
         ></Form>
         <div className="redirect">
           <p className="redirect__text">Уже зарегистрированы?</p>
