@@ -31,6 +31,9 @@ export default function Movies() {
   };
 
   const handleSearch = (query) => {
+    if (!query) {
+      return setError("Нужно ввести ключевое слово");
+    }
     setError('');
     setMoviesList([]);
     getMovies(query)
