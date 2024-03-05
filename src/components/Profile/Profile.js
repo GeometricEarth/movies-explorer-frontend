@@ -1,17 +1,14 @@
 import './Profile.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+
 import Button from '../Button/Button';
 import LinkStyled from '../LinkStyled/LinkStyled';
 import Header from '../Header/Header';
 import useForm from '../../hooks/useForm';
 
-function Profile({
-  user,
-  onSave,
-  submitError,
-  isAuthorized,
-  onOpenMobileMenu,
-}) {
+function Profile({ onSave, submitError, onOpenMobileMenu }) {
+  const { currentUser, isAuthorized } = useContext(CurrentUserContext);
   const [isEditable, setEditable] = useState(false);
 
   const editDone = (data) => {
@@ -30,7 +27,7 @@ function Profile({
     errors,
     isValid,
     resetForm,
-  } = useForm(user ?? {}, editDone);
+  } = useForm(currentUser ?? {}, editDone);
 
   return (
     <>
@@ -40,7 +37,7 @@ function Profile({
       ></Header>
       <main>
         <section className="profile">
-          <h1 className="profile__greeting">Привет, {user.name}!</h1>
+          <h1 className="profile__greeting">Привет, {currentUser.name}!</h1>
           <form
             name="profile"
             className="profile__form"
