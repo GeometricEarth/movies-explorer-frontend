@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import MainTemplate from '../MainTemplate/MainTemplate';
@@ -21,17 +21,22 @@ function App() {
   const [isAuthorized, setAuthorized] = useState(false);
   const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-
-  const [user, setUser] = useState({
-    name: 'Виталий',
-    email: 'pochta@yandex.ru',
-  });
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getUserData().then((user) => {
-      setAuthorized(true);
-      setCurrentUser(user);
-    });
+    if (!isAuthorized) {
+      getUserData()
+        .then((user) => {
+          setAuthorized(true);
+          setCurrentUser(user);
+          navigate(location.pathname);
+        })
+        .catch((err) => {
+          setAuthorized(false);
+          console.log(err);
+        });
+    }
   }, []);
 
   const handleCloseMobileMenu = () => {
@@ -41,8 +46,9 @@ function App() {
     setMobileMenuOpened(true);
   };
   const handleSaveUserData = (user) => {
-    setUser(user);
+    setCurrentUser(user);
   };
+
   return (
     <div className="page">
       <div className="page__content">
@@ -53,10 +59,7 @@ function App() {
             <Route
               path="/"
               element={
-                <MainTemplate
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                >
+                <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
                   <Main />
                 </MainTemplate>
               }
@@ -65,7 +68,6 @@ function App() {
               path="/movies"
               element={
                 <ProtectedRoute
-                  route="/movies"
                   renderElement={() => {
                     return (
                       <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
@@ -79,23 +81,30 @@ function App() {
             <Route
               path="/saved-movies"
               element={
-                <MainTemplate
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                >
-                  <SavedMovies />
-                </MainTemplate>
+                <ProtectedRoute
+                  renderElement={() => {
+                    return (
+                      <MainTemplate onOpenMobileMenu={handleOpenMobileMenu}>
+                        <SavedMovies />
+                      </MainTemplate>
+                    );
+                  }}
+                ></ProtectedRoute>
               }
             ></Route>
             <Route
               path="/profile"
               element={
-                <Profile
-                  user={user}
-                  onSave={handleSaveUserData}
-                  isAuthorized={isAuthorized}
-                  onOpenMobileMenu={handleOpenMobileMenu}
-                />
+                <ProtectedRoute
+                  renderElement={() => {
+                    return (
+                      <Profile
+                        onSave={handleSaveUserData}
+                        onOpenMobileMenu={handleOpenMobileMenu}
+                      />
+                    );
+                  }}
+                ></ProtectedRoute>
               }
             ></Route>
             <Route path="/signin" element={<Login />}></Route>
