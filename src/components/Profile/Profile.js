@@ -7,7 +7,7 @@ import LinkStyled from '../LinkStyled/LinkStyled';
 import Header from '../Header/Header';
 import useForm from '../../hooks/useForm';
 
-function Profile({ onSave, submitError, onOpenMobileMenu }) {
+function Profile({ onSave, onLogOut, submitError, onOpenMobileMenu }) {
   const { currentUser, isAuthorized } = useContext(CurrentUserContext);
   const [isEditable, setEditable] = useState(false);
 
@@ -123,7 +123,7 @@ function Profile({ onSave, submitError, onOpenMobileMenu }) {
               Редактировать
             </Button>
           )}
-          <LinkStyled className="profile__logout" to="/signin">
+          <LinkStyled className="profile__logout" onClick={onLogOut}>
             Выйти из аккаунта
           </LinkStyled>
         </section>

@@ -15,7 +15,7 @@ import Profile from '../Profile/Profile';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { getUserData } from '../../utils/auth';
+import { getUserData, signOut } from '../../utils/auth';
 
 function App() {
   const [isAuthorized, setAuthorized] = useState(false);
@@ -47,6 +47,14 @@ function App() {
   };
   const handleSaveUserData = (user) => {
     setCurrentUser(user);
+  };
+  const handleLogOut = () => {
+    signOut()
+      .then(() => {
+        setAuthorized(false);
+        navigate('/');
+      })
+      .catch(console.log);
   };
 
   return (
@@ -100,6 +108,7 @@ function App() {
                     return (
                       <Profile
                         onSave={handleSaveUserData}
+                        onLogOut = {handleLogOut}
                         onOpenMobileMenu={handleOpenMobileMenu}
                       />
                     );

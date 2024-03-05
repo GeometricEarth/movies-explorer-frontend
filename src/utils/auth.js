@@ -57,7 +57,7 @@ export const getUserData = () => {
   });
 };
 
-export const logout = () => {
+export const signOut = () => {
   return sendRequest('/signout', {
     method: 'DELETE',
     credentials: 'include',
