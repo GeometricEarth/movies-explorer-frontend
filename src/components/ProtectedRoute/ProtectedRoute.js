@@ -11,14 +11,17 @@ export default function ProtectedRoute({ renderElement, route }) {
 
   useEffect(() => {
     if (!isAuthorized) {
-      getUserData().then((user) => {
-        setAuthorized(true);
-        setCurrentUser(user);
-        
-      }).catch((err)=>{
-        console.log(err);
-        navigate('/signin');
-      })
+      getUserData()
+        .then((user) => {
+          setAuthorized(true);
+          setCurrentUser(user);
+          navigate(route);
+        })
+        .catch((err) => {
+          setAuthorized(false);
+          console.log(err);
+          navigate('/signin');
+        });
     }
     // eslint-disable-next-line
   }, []);

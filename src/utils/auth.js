@@ -52,11 +52,9 @@ export const getUserData = () => {
     headers: {
       'Content-Type': 'application/json',
     },
-  })
-    .then((res) => {
-      return res.json();
-    })
-    .catch((err) => console.log(err));
+  }).then((res) => {
+    return res.json();
+  });
 };
 
 export const logout = () => {
