@@ -87,6 +87,25 @@ export default function Register() {
             />
             <span className="field__error">{errors["email"]}</span>
           </div>
+          <div className="field">
+            <label className="field__label" htmlFor="password">
+              E-mail
+            </label>
+            <input
+              className={
+                'field__input ' + (!errors["password"] ? '' : 'field_input_error')
+              }
+              required
+              type={"password"}
+              name={"password"}
+              minLength={6}
+              id={"password"}
+              onChange={handleInputChange}
+              value={formData["empasswordail"]}
+            />
+            <span className="field__error">{errors["password"]}</span>
+          </div>
+
 
           <span className="form__error">{errorMessage}</span>
           <button
