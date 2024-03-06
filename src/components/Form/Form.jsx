@@ -8,20 +8,15 @@ export default function Form({
   formType,
   submitText,
   submitError,
-  onSubmit
+  onSubmit,
 }) {
   const initialState = {};
   formFields.forEach((element) => {
     initialState[element.name] = '';
   });
 
-  const {
-    handleInputChange,
-    handleSubmit,
-    formData,
-    errors,
-    isValid,
-  } = useForm(initialState, onSubmit);
+  const { handleInputChange, handleSubmit, formData, errors, isValid } =
+    useForm(initialState, onSubmit);
 
   return (
     <form
@@ -40,8 +35,8 @@ export default function Form({
                 'field__input ' + (!errors[name] ? '' : 'field_input_error')
               }
               required
-              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               type={type}
+              pattern={pattern}
               name={name}
               id={name}
               onChange={handleInputChange}
