@@ -3,6 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import getMovies from '../../utils/MoviesApi';
 import { useState, useEffect } from 'react';
+import { saveMovie } from '../../utils/MainApi';
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
@@ -26,8 +27,8 @@ export default function Movies() {
     setFilteredList(moviesList);
   }, [isShorts, moviesList]);
 
-  const handleSave = (cardId) => {
-    console.log(cardId);
+  const handleSave = (card) => {
+    saveMovie(card)
   };
 
   const handleSearch = (query) => {
