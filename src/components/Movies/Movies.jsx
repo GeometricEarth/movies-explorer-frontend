@@ -4,8 +4,10 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import getMovies from '../../utils/MoviesApi';
 import { useState, useEffect } from 'react';
 import { saveMovie } from '../../utils/MainApi';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function Movies() {
+  const {currentUser} = useState(CurrentUserContext);
   const [moviesList, setMoviesList] = useState([]);
   const [isShorts, setShorts] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
@@ -28,7 +30,7 @@ export default function Movies() {
   }, [isShorts, moviesList]);
 
   const handleSave = (card) => {
-    saveMovie(card)
+    saveMovie(card).then(console.log).catch(console.log);
   };
 
   const handleSearch = (query) => {
