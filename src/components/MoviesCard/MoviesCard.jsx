@@ -19,7 +19,11 @@ function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
         <></>
       )}
       {!isSavedMovies & isSaved ? (
-        <button className="movies-card__button movies-card__button_type_saved"></button>
+        <button
+          className="movies-card__button movies-card__button_type_saved"
+          onClick={() => {
+            onDelete(id);
+          }}></button>
       ) : (
         <></>
       )}
