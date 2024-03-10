@@ -4,10 +4,8 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import getMovies from '../../utils/MoviesApi';
 import { useState, useEffect } from 'react';
 import { saveMovie } from '../../utils/MainApi';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function Movies() {
-  const {currentUser} = useState(CurrentUserContext);
   const [moviesList, setMoviesList] = useState([]);
   const [isShorts, setShorts] = useState(false);
   const [filteredList, setFilteredList] = useState([]);
@@ -30,7 +28,13 @@ export default function Movies() {
   }, [isShorts, moviesList]);
 
   const handleSave = (card) => {
-    saveMovie(card).then(console.log).catch(console.log);
+    saveMovie(card).then((savedCard) => {
+      setMoviesList((state) => {
+        const newState = state.map((cardInState) => (cardInState.id === card.id ? { ...cardInState, isSaved: true } : cardInState));
+        localStorage.setItem('filteredFilms', JSON.stringify(newState));
+        return newState
+      })
+    }).catch(console.log);
   };
 
   const handleSearch = (query) => {
