@@ -13,11 +13,16 @@ export default function Movies() {
 
   useEffect(() => {
     const filmsList = JSON.parse(localStorage.getItem('filteredFilms'));
-    setMoviesList(filmsList || []);
+    setMoviesList(filmsList);
     setShorts(!!Number(localStorage.getItem('isShorts')));
   }, []);
 
   useEffect(() => {
+    if (moviesList.length === 0) {
+      return
+    }
+
+    localStorage.setItem('filteredFilms', JSON.stringify(moviesList));
     if (isShorts) {
       const shorts = moviesList.filter((movie) => movie.duration < 40);
       setFilteredList(shorts);
@@ -36,7 +41,6 @@ export default function Movies() {
               ? { ...cardInState, isSaved: true }
               : cardInState,
           );
-          localStorage.setItem('filteredFilms', JSON.stringify(newState));
           return newState;
         });
       })
@@ -68,7 +72,6 @@ export default function Movies() {
         setError('Ничего не найдено');
       }
 
-      localStorage.setItem('filteredFilms', JSON.stringify(filteredFilms));
       localStorage.setItem('searchQuery', query);
     } catch (err) {
       setError(err.toString());
