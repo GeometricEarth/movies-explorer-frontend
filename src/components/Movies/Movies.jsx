@@ -55,14 +55,13 @@ export default function Movies() {
         );
         return;
       }
-      const filteredFilms = foundMovies.filter((movie) => {
+      let filteredFilms = foundMovies.filter((movie) => {
         return movie.nameRU.includes(query);
       });
       const savedMovies = await getSavedMovies();
-      filteredFilms.map((movie) => {
-        savedMovies.includes();
+      filteredFilms = filteredFilms.map((movie) => {
+        return savedMovies.some((item) => item.movieId === movie.id) ? { ...movie, isSaved: true } : movie
       });
-      console.log(savedMovies);
 
       setMoviesList(filteredFilms);
       if (filteredFilms.length === 0) {
