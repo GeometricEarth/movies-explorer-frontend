@@ -1,18 +1,3 @@
-// const sendRequest = (path, settings) => {
-//   const development =
-//     !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
-//   const apiUrl = development
-//     ? 'http://127.0.0.1:3001'
-//     : 'api.geomovie.nomoredomainsicu.ru';
-
-//   return fetch(`${apiUrl}${path}`, settings).then((res) => {
-//     if (!res.ok) {
-//       return Promise.reject(`Oшибка: ${res.status}`);
-//     }
-//     return res;
-//   });
-// };
-
 const beatfilmMoviesURL = 'https://api.nomoreparties.co/beatfilm-movies';
 
 const sendRequest = (method, path, body) => {
@@ -40,7 +25,7 @@ const sendRequest = (method, path, body) => {
   });
 };
 
-export const saveMovie = (data, owner) => {
+export const saveMovie = (data) => {
   const payload = {
     country: data.country,
     director: data.director,
@@ -50,7 +35,6 @@ export const saveMovie = (data, owner) => {
     image: beatfilmMoviesURL + data.image.url,
     trailerLink: data.trailerLink,
     thumbnail: beatfilmMoviesURL + data.image.formats.thumbnail.url,
-    // owner,
     movieId: data.id,
     nameRU: data.nameRU,
     nameEN: data.nameEN,
@@ -62,5 +46,11 @@ export const saveMovie = (data, owner) => {
 };
 
 export const deleteMovie = (id) => {
-  return sendRequest('DELETE', `/movies/${id}`, {});
+  return sendRequest('DELETE', `/movies/${id}`);
+};
+
+export const getSavedMovies = () => {
+  return sendRequest('GET', '/movies').then((resp) => {
+    return resp.json();
+  });
 };

@@ -3,7 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import getMovies from '../../utils/MoviesApi';
 import { useState, useEffect } from 'react';
-import { saveMovie } from '../../utils/MainApi';
+import { saveMovie, getSavedMovies } from '../../utils/MainApi';
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
@@ -28,40 +28,52 @@ export default function Movies() {
   }, [isShorts, moviesList]);
 
   const handleSave = (card) => {
-    saveMovie(card).then((savedCard) => {
-      setMoviesList((state) => {
-        const newState = state.map((cardInState) => (cardInState.id === card.id ? { ...cardInState, isSaved: true } : cardInState));
-        localStorage.setItem('filteredFilms', JSON.stringify(newState));
-        return newState
+    saveMovie(card)
+      .then((savedCard) => {
+        setMoviesList((state) => {
+          const newState = state.map((cardInState) =>
+            cardInState.id === card.id
+              ? { ...cardInState, isSaved: true }
+              : cardInState,
+          );
+          localStorage.setItem('filteredFilms', JSON.stringify(newState));
+          return newState;
+        });
       })
-    }).catch(console.log);
+      .catch(console.log);
   };
 
-  const handleSearch = (query) => {
-    setError('');
-    setMoviesList([]);
-    getMovies(query)
-      .then((data) => {
-        if (!data) {
-          setError(
-            'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
-          );
-          return;
-        }
-        const filteredFilms = data.filter((film) => {
-          return film.nameRU.includes(query);
-        });
-        setMoviesList(filteredFilms);
-        if (filteredFilms.length === 0) {
-          setError('Ничего не найдено');
-        }
+  const handleSearch = async (query) => {
+    try {
+      setError('');
+      setMoviesList([]);
+      const foundMovies = await getMovies(query);
 
-        localStorage.setItem('filteredFilms', JSON.stringify(filteredFilms));
-        localStorage.setItem('searchQuery', query);
-      })
-      .catch((err) => {
-        setError(err.toString());
+      if (!foundMovies) {
+        setError(
+          'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+        );
+        return;
+      }
+      const filteredFilms = foundMovies.filter((movie) => {
+        return movie.nameRU.includes(query);
       });
+      const savedMovies = await getSavedMovies();
+      filteredFilms.map((movie) => {
+        savedMovies.includes();
+      });
+      console.log(savedMovies);
+
+      setMoviesList(filteredFilms);
+      if (filteredFilms.length === 0) {
+        setError('Ничего не найдено');
+      }
+
+      localStorage.setItem('filteredFilms', JSON.stringify(filteredFilms));
+      localStorage.setItem('searchQuery', query);
+    } catch (err) {
+      setError(err.toString());
+    }
   };
 
   const handleSetShorts = (value) => {
