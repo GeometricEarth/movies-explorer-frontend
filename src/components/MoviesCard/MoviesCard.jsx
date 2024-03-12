@@ -1,7 +1,7 @@
 import './MoviesCard.css';
 
 function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
-  const { image, nameRU, duration, isSaved, id } = movieCard;
+  const { image, nameRU, duration, isSaved, id, movieId } = movieCard;
   const baseURL = "https://api.nomoreparties.co/";
   return (
     <div className="movies-card">
@@ -22,7 +22,7 @@ function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
         <button
           className="movies-card__button movies-card__button_type_saved"
           onClick={() => {
-            onDelete(id);
+            onDelete(movieId);
           }}></button>
       ) : (
         <></>

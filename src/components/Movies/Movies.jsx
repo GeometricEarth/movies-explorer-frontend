@@ -3,7 +3,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import getMovies from '../../utils/MoviesApi';
 import { useState, useEffect } from 'react';
-import { saveMovie, getSavedMovies } from '../../utils/MainApi';
+import { saveMovie, getSavedMovies, deleteMovie } from '../../utils/MainApi';
 
 export default function Movies() {
   const [moviesList, setMoviesList] = useState([]);
@@ -18,8 +18,8 @@ export default function Movies() {
   }, []);
 
   useEffect(() => {
-    if (moviesList.length === 0) {
-      return
+    if (!moviesList || moviesList.length === 0) {
+      return;
     }
 
     localStorage.setItem('filteredFilms', JSON.stringify(moviesList));
@@ -64,7 +64,13 @@ export default function Movies() {
       });
       const savedMovies = await getSavedMovies();
       filteredFilms = filteredFilms.map((movie) => {
-        return savedMovies.some((item) => item.movieId === movie.id) ? { ...movie, isSaved: true } : movie
+        const likedMovie = savedMovies.find((item) => {
+          return item.movieId === movie.id;
+        });
+        if (!likedMovie) {
+          return movie;
+        }
+        return { ...movie, isSaved: true, movieId: likedMovie._id };
       });
 
       setMoviesList(filteredFilms);
@@ -83,6 +89,30 @@ export default function Movies() {
     setShorts(value);
   };
 
+  const handleDelete = (id) => {
+    deleteMovie(id)
+      .then(() => {
+        setMoviesList((state) => {
+          return state.map((movie) => {
+            if (movie.movieId !== id) {
+              return movie;
+            }
+            const result = movie;
+            movie.isSaved = false;
+            return result;
+          });
+        });
+
+        // setMoviesList((state) => {
+        //   const newState = state.filter((movie) => {
+        //     return movie.movieId !== id;
+        //   });
+        //   return newState;
+        // });
+      })
+      .catch(console.log);
+  };
+
   return (
     <main className="movies">
       <SearchForm
@@ -95,6 +125,7 @@ export default function Movies() {
         moviesList={filteredList}
         isSavedMovies={false}
         onSave={handleSave}
+        onDelete={handleDelete}
       ></MoviesCardList>
     </main>
   );
