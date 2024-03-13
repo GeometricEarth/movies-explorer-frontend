@@ -37,8 +37,8 @@ export default function Movies() {
       .then((savedCard) => {
         setMoviesList((state) => {
           const newState = state.map((cardInState) =>
-            cardInState.id === card.id
-              ? { ...cardInState, isSaved: true }
+            cardInState.id === savedCard.movieId
+              ? { ...cardInState, isSaved: true, movieId: savedCard._id }
               : cardInState,
           );
           return newState;
@@ -97,9 +97,10 @@ export default function Movies() {
             if (movie.movieId !== id) {
               return movie;
             }
-            const result = movie;
             movie.isSaved = false;
-            return result;
+            movie.movieId = '';
+            return movie;
+
           });
         });
 

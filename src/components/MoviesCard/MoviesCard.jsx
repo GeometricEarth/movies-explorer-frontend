@@ -31,7 +31,7 @@ function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
         <button
           className="movies-card__button movies-card__button_type_delete"
           onClick={() => {
-            onDelete(id);
+            onDelete(movieId);
           }}
         ></button>
       ) : (
