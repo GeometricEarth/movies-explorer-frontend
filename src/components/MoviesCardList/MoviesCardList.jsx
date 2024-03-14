@@ -54,7 +54,7 @@ function MoviesCardList({ moviesList, isSavedMovies, onSave, onDelete }) {
                 isSavedMovies={isSavedMovies}
                 onSave={onSave}
                 onDelete={onDelete}
-                key={movieCard.id}
+                key={movieCard.geoMovieId || movieCard.beatFilmId}
               ></MoviesCard>
             );
           })}

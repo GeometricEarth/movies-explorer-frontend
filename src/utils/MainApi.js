@@ -25,19 +25,46 @@ const sendRequest = (method, path, body) => {
   });
 };
 
-export const saveMovie = (data) => {
+export const saveMovie = ({
+  country,
+  director,
+  duration,
+  year,
+  description,
+  trailerLink,
+  beatFilmId,
+  nameRU,
+  nameEN,
+  ...rest
+}) => {
+  const image = beatfilmMoviesURL + rest.image.url;
+  const thumbnail = beatfilmMoviesURL + rest.image.formats.thumbnail.url;
+
+  // const payload2 = {
+  //   country: data.country,
+  //   director: data.director,
+  //   duration: data.duration,
+  //   year: data.year,
+  //   description: data.description,
+  //   image: beatfilmMoviesURL + data.image.url,
+  //   trailerLink: data.trailerLink,
+  //   thumbnail: beatfilmMoviesURL + data.image.formats.thumbnail.url,
+  //   movieId: data.beatFilmId,
+  //   nameRU: data.nameRU,
+  //   nameEN: data.nameEN,
+  // };
   const payload = {
-    country: data.country,
-    director: data.director,
-    duration: data.duration,
-    year: data.year,
-    description: data.description,
-    image: beatfilmMoviesURL + data.image.url,
-    trailerLink: data.trailerLink,
-    thumbnail: beatfilmMoviesURL + data.image.formats.thumbnail.url,
-    movieId: data.id,
-    nameRU: data.nameRU,
-    nameEN: data.nameEN,
+    country,
+    director,
+    image,
+    duration,
+    year,
+    description,
+    trailerLink,
+    thumbnail,
+    beatFilmId,
+    nameEN,
+    nameRU,
   };
 
   return sendRequest('POST', '/movies ', payload).then((resp) => {

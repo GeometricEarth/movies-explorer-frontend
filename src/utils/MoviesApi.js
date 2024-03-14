@@ -13,5 +13,12 @@ export default function getMovies(searchQuery) {
       }
       return res.json();
     })
+    .then((movies) => {
+      return movies.map((movie) => {
+        movie['beatFilmId'] = movie['id'];
+        delete movie['id'];
+        return movie;
+      });
+    })
     .catch(console.error);
 }
