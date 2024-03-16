@@ -4,7 +4,7 @@ const sendRequest = (method, path, body) => {
   const development =
     !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
   const apiUrl = development
-    ? 'http://127.0.0.1:3001'
+    ? 'http://localhost:3001'
     : 'api.geomovie.nomoredomainsicu.ru';
 
   const settings = {
