@@ -1,5 +1,3 @@
-const beatfilmMoviesURL = 'https://api.nomoreparties.co/beatfilm-movies';
-
 const sendRequest = (method, path, body) => {
   const development =
     !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
@@ -35,24 +33,9 @@ export const saveMovie = ({
   beatFilmId,
   nameRU,
   nameEN,
-  ...rest
+  image,
+  thumbnail,
 }) => {
-  const image = beatfilmMoviesURL + rest.image.url;
-  const thumbnail = beatfilmMoviesURL + rest.image.formats.thumbnail.url;
-
-  // const payload2 = {
-  //   country: data.country,
-  //   director: data.director,
-  //   duration: data.duration,
-  //   year: data.year,
-  //   description: data.description,
-  //   image: beatfilmMoviesURL + data.image.url,
-  //   trailerLink: data.trailerLink,
-  //   thumbnail: beatfilmMoviesURL + data.image.formats.thumbnail.url,
-  //   movieId: data.beatFilmId,
-  //   nameRU: data.nameRU,
-  //   nameEN: data.nameEN,
-  // };
   const payload = {
     country,
     director,

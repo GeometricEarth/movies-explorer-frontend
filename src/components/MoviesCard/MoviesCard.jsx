@@ -1,11 +1,10 @@
 import './MoviesCard.css';
 
 function MoviesCard({ movieCard, isSavedMovies, onSave, onDelete }) {
-  const { image, nameRU, duration, isSaved, id, geoMovieId } = movieCard;
-  const baseURL = "https://api.nomoreparties.co/";
+  const { image, nameRU, duration, isSaved, geoMovieId } = movieCard;
   return (
     <div className="movies-card">
-      <img className="movies-card__image" src={baseURL + image.url} alt={nameRU} />
+      <img className="movies-card__image" src={image} alt={nameRU} />
       {!isSavedMovies & !isSaved ? (
         <button
           className="movies-card__button movies-card__button_type_save"
