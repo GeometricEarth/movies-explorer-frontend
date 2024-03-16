@@ -103,13 +103,6 @@ export default function Movies() {
 
           });
         });
-
-        // setMoviesList((state) => {
-        //   const newState = state.filter((movie) => {
-        //     return movie.movieId !== id;
-        //   });
-        //   return newState;
-        // });
       })
       .catch(console.log);
   };
