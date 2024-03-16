@@ -37,8 +37,8 @@ export default function Movies() {
       .then((savedCard) => {
         setMoviesList((state) => {
           const newState = state.map((cardInState) =>
-            cardInState.id === savedCard.movieId
-              ? { ...cardInState, isSaved: true, movieId: savedCard._id }
+            cardInState.beatFilmId === savedCard.beatFilmId
+              ? { ...cardInState, isSaved: true, geoMovieId: savedCard._id }
               : cardInState,
           );
           return newState;
@@ -65,12 +65,12 @@ export default function Movies() {
       const savedMovies = await getSavedMovies();
       filteredFilms = filteredFilms.map((movie) => {
         const likedMovie = savedMovies.find((item) => {
-          return item.movieId === movie.id;
+          return item.beatFilmId === movie.beatFilmId;
         });
         if (!likedMovie) {
           return movie;
         }
-        return { ...movie, isSaved: true, movieId: likedMovie._id };
+        return { ...movie, isSaved: true, geoMovieId: likedMovie._id };
       });
 
       setMoviesList(filteredFilms);
@@ -94,11 +94,11 @@ export default function Movies() {
       .then(() => {
         setMoviesList((state) => {
           return state.map((movie) => {
-            if (movie.movieId !== id) {
+            if (movie.geoMovieId !== id) {
               return movie;
             }
             movie.isSaved = false;
-            movie.movieId = '';
+            movie.geoMovieId = '';
             return movie;
 
           });
