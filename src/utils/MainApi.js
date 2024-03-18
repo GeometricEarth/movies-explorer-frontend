@@ -17,7 +17,7 @@ const sendRequest = (method, path, body) => {
   }
   return fetch(`${apiUrl}${path}`, settings).then((resp) => {
     if (!resp.ok) {
-      return Promise.reject(resp.statusText);
+      return Promise.reject(resp);
     }
     return resp;
   });
